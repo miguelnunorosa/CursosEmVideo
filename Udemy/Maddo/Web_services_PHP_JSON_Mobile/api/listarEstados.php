@@ -1,6 +1,6 @@
 <?php
-global $conection;
-include ('dbConnection.php');
+    global $conection;
+    include ('dbConnection.php');
 
 
 

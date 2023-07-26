@@ -1,6 +1,7 @@
 <?php
     header('content-type: application/json');
 
+
     define('HOST', 'localhost');
     define('USER', 'mike');
     define('PASS', 'mertola21');
@@ -11,4 +12,5 @@
     $conection = mysqli_connect(HOST, USER, PASS, DB) or die("Falha!");
 
     mysqli_set_charset($conection, CHARSET);
+
 ?>
