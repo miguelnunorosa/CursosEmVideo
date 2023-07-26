@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import foo.fd.estudodecasolistar.settings.Settings;
@@ -93,6 +94,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             Log.i("API-Listar", "doInBackground() pass");
+
+            //create content for URL
+            try{
+                url = new URL(settings.APIURL + settings.API_LISTARESTADO);
+            }catch (MalformedURLException e){
+                Log.i("API-Listar", "doInBackground() => " + e.getMessage());
+            }catch (Exception e){
+                Log.i("API-Listar", "doInBackground() => " + e.getMessage());
+            }
 
             return "Process complete!";
         }
