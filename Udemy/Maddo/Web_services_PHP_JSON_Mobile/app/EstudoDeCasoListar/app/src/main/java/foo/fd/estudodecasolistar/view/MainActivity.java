@@ -1,5 +1,6 @@
 package foo.fd.estudodecasolistar.view;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -51,4 +52,31 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+    public class ListarEstadosAsyncTask extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute(){
+            //
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            //super.onPostExecute(result);
+        }
+    }
+
+
+
+
+
+
+
 }
