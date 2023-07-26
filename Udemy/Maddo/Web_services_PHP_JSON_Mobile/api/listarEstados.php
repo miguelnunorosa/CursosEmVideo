@@ -1,18 +1,17 @@
-<?
-    require_once('DBConnection.php');
-    
+<?php
+    include('DBConnection.php');
+
 
     const TABLE = "estado";
-    const SQL_READ = 'SELECT * FROM ' . TABLE ;//. " WHERE nome="
+    const SQL_READ = 'SELECT * FROM ' . TABLE ;
 
 
-    $stmt = mysqli_prepare($conn, SQL_READ);
+    $query = mysqli_prepare($conn, SQL_READ);
 
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_store_result($stmt);
-    mysqli_stmt_bind_result($stmt, $id, $sigla, $nome);
-
-    var_dump($stmt);
+    mysqli_stmt_execute($query);
+    mysqli_stmt_store_result($query);
+    mysqli_stmt_bind_result($query, $id, $sigla, $nome);
 
 
+    var_dump($query);
 ?>
