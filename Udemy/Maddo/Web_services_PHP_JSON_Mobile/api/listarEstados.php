@@ -14,6 +14,19 @@ include ('dbConnection.php');
     mysqli_stmt_store_result($query);
     mysqli_stmt_bind_result($query, $id, $sigla, $nome);
 
+    $data = array();
 
-    var_dump($query);
+    if(mysqli_stmt_num_rows($query) > 0){
+        while (mysqli_stmt_fetch($query)){
+            array_push($data, array("id"=>$id, "sigla"=>$sigla, "nome"=>$nome));
+        }
+
+        echo json_encode($data);
+    }else{
+        echo json_encode($data);
+    }
+
+
+
+
 ?>
