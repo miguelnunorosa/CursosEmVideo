@@ -8,4 +8,9 @@ public class Settings {
     public final String API_LISTARESTADO = "/listarEstados.php";
     public final int READ_TIMEOUT = 10000; //time in ms
     public final int CONNECTION_TIMEOUT = 30000; //time in ms
+    public final String CHARSET = "utf8";
+
+
+
+
 }

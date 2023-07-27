@@ -104,6 +104,21 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
 
+            //create HTTP Request (Post) and the result will be an arrayJson
+            try {
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setReadTimeout(settings.READ_TIMEOUT);
+                urlConnection.setConnectTimeout(settings.CONNECTION_TIMEOUT);
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestProperty("charset", settings.CHARSET);
+                urlConnection.setDoInput(true);
+                urlConnection.setDoOutput(true);
+
+                urlConnection.connect();
+            }catch (Exception e){
+                //
+            }
+
             return "Process complete!";
         }
 
