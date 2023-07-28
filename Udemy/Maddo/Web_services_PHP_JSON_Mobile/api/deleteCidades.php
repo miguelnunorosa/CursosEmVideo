@@ -14,7 +14,8 @@
 
         if($get_api_token == API_TOKEN){
             $sql = SQL_DELETE . " WHERE id=$api_idCidade";
-            $query = mysqli_prepare($conection, $sql);
+            $sql2 = SQL_DELETE . " WHERE id=$api_idCidade";
+            $query = mysqli_prepare($conection, "DELETE FROM " .TABLE. " WHERE id=$api_idCidade");
 
             $response = array();
             mysqli_stmt_execute($query);
