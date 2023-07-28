@@ -8,9 +8,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,6 +23,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import foo.fd.estudodecasolistar.model.Cidade;
+import foo.fd.estudodecasolistar.model.Estado;
 import foo.fd.estudodecasolistar.settings.Settings;
 
 import foo.fd.estudodecasolistar.R;
@@ -41,13 +46,8 @@ public class MainActivity extends AppCompatActivity {
         task.execute(); //start async process
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
     }
 
     @Override
@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
             this.builder = new Uri.Builder();
             builder.appendQueryParameter("api_token", api_token);
-
         }
 
         @Override
@@ -138,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
                 stream.close();
 
                 urlConnection.connect();
-
             }catch (Exception e){
                 Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
@@ -152,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
                     StringBuilder result = new StringBuilder();
-                    String line = null;
+                    String line;
 
                     while( (line = reader.readLine()) != null){
                         result.append(line);
@@ -176,13 +174,28 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Log.i("API-Listar", "onPostExecute() result: " + result);
             //super.onPostExecute(result);
+
+            try{
+                Estado estado;
+                JSONArray jsonArray = new JSONArray(result);
+
+                if (jsonArray.length() != 0){
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                       JSONObject jsonObject = jsonArray.getJSONObject(i);
+                       estado = new Estado(jsonObject.getInt("id"),
+                                           jsonObject.getString("sigla"),
+                                           jsonObject.getString("nome"));
+
+                       Log.i("API-Listar: ", "Estado " + estado.getId() + ": " + estado.getSigla() + " - " + estado.getNome() );
+                    }
+                }
+
+            }catch (Exception e){
+                Log.i("API-Listar", "onPostExecute() => " + e.getMessage());
+            }
         }
+
     }
-
-
-
-
-
 
 
 }
