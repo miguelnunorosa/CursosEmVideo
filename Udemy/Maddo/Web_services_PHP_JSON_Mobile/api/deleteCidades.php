@@ -13,7 +13,7 @@
         $api_idCidade = $_POST["api_idCidade"];
 
         if($get_api_token == API_TOKEN){
-            $sql = SQL_DELETE . "WHERE id=$api_idCidade";
+            $sql = SQL_DELETE . " WHERE id=$api_idCidade";
             $query = mysqli_prepare($conection, $sql);
 
             $response = array();
