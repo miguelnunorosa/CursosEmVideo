@@ -12,7 +12,7 @@ public class Settings {
 
     public final int READ_TIMEOUT = 10000; //time in ms
     public final int CONNECTION_TIMEOUT = 30000; //time in ms
-    public final String CHARSET = "utf8";
+    public final String CHARSET = "utf-8";
 
 
 
