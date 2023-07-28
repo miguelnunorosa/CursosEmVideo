@@ -17,7 +17,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 import foo.fd.estudodecasolistar.settings.Settings;
 
@@ -26,14 +25,14 @@ import foo.fd.estudodecasolistar.R;
 public class MainActivity extends AppCompatActivity {
     Settings settings = new Settings();
 
-    private final String token = settings.APITOKEN;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        String token = settings.APITOKEN;
 
         ListarEstadosAsyncTask task = new ListarEstadosAsyncTask(token);
         task.execute(); //start async process
@@ -78,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         HttpURLConnection urlConnection;
         URL url = null;
         Uri.Builder builder;
+        int responseCode;
 
 
 
@@ -103,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 url = new URL(settings.APIURL + settings.API_LISTARESTADO);
             }catch (MalformedURLException e){
                 Log.i("API-Listar", "doInBackground() => " + e.getMessage());
-            }catch (Exception e){
-                Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
 
             //create HTTP Request (Post) and the result will be an arrayJson
@@ -119,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
                 urlConnection.connect();
             }catch (Exception e){
-                //
+                Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
 
 
@@ -138,7 +136,14 @@ public class MainActivity extends AppCompatActivity {
 
                 urlConnection.connect();
 
-                int parada = 0;
+            }catch (Exception e){
+                Log.i("API-Listar", "doInBackground() => " + e.getMessage());
+            }
+
+            //get response (JSON format) and response code (200, 404, 503)
+            try {
+                responseCode = urlConnection.getResponseCode();
+
             }catch (Exception e){
                 Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
@@ -148,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Log.i("API-Listar", "onPostExecute() result: " + result.toString());
+            Log.i("API-Listar", "onPostExecute() result: " + result);
             //super.onPostExecute(result);
         }
     }
