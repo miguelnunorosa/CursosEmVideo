@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.BufferedWriter;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -23,7 +26,7 @@ import foo.fd.estudodecasolistar.R;
 public class MainActivity extends AppCompatActivity {
     Settings settings = new Settings();
 
-    private String token = settings.APITOKEN;
+    private final String token = settings.APITOKEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class ListarEstadosAsyncTask extends AsyncTask<String, String, String> {
 
-        String api_token;
+        String api_token, query;
         HttpURLConnection urlConnection;
         URL url = null;
         Uri.Builder builder;
@@ -117,6 +120,27 @@ public class MainActivity extends AppCompatActivity {
                 urlConnection.connect();
             }catch (Exception e){
                 //
+            }
+
+
+            //add token or another params
+            try{
+                query = builder.build().getEncodedQuery();
+
+                OutputStream stream = urlConnection.getOutputStream();
+
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(stream, settings.CHARSET));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+
+                stream.close();
+
+                urlConnection.connect();
+
+                int parada = 0;
+            }catch (Exception e){
+                Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
 
             return "Process complete!";
