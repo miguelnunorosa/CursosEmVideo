@@ -12,7 +12,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -140,12 +143,30 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
 
-            //get response (JSON format) and response code (200, 404, 503)
+            //get response (JSON format) and response code (200 / 404 / 503)
             try {
                 responseCode = urlConnection.getResponseCode();
 
+                if(responseCode == HttpURLConnection.HTTP_OK){
+                    InputStream input = urlConnection.getInputStream();
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line = null;
+
+                    while( (line = reader.readLine()) != null){
+                        result.append(line);
+                    }
+
+                    return result.toString();
+                }else{
+                    //return http error
+                    return "HTTP ERROR: " + responseCode;
+                }
             }catch (Exception e){
                 Log.i("API-Listar", "doInBackground() => " + e.getMessage());
+            }finally {
+                urlConnection.disconnect();
             }
 
             return "Process complete!";
