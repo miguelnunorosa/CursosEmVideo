@@ -395,7 +395,7 @@ public class MainActivity extends AppCompatActivity {
 
             //create content for URL
             try{
-                url = new URL(settings.APIURL + settings.API_LISTARCIDADE);
+                url = new URL(settings.APIURL + settings.API_DELETECIDADE);
             }catch (MalformedURLException e){
                 Log.i("API-Listar", "doInBackground() => " + e.getMessage());
             }
