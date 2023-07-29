@@ -3,12 +3,14 @@
 
     const TABLE = "cidade";
     const SQL_READ = 'SELECT * FROM ' . TABLE ;
+    const API_TOKEN = "api_token_example";
 
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         include ('dbConnection.php');
 
         $get_api_token = "api_token_example";
+
         if($get_api_token == API_TOKEN){
             $query = mysqli_prepare($conection, SQL_READ);
 
