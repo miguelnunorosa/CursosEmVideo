@@ -338,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
 
                 OutputStream stream = urlConnection.getOutputStream();
 
-                BufferedWriter writer = new BufferedWriter( new OutputStreamWriter(stream, "utf-8") );
+                BufferedWriter writer = new BufferedWriter( new OutputStreamWriter(stream, settings.CHARSET) );
 
                 writer.write(query);
                 writer.flush();
@@ -514,7 +514,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(result);
 
-                if (jsonObject.getBoolean("deletado")) {
+                if (jsonObject.getBoolean("deleted")) {
                     txtResultado.setText("Registro Deletado: "+idCidade);
 
                     Log.i("APIListar", "onPostExecute()--> Deletado com Sucesso");
@@ -639,7 +639,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(result);
 
-                if (jsonObject.getBoolean("alterado")) {
+                if (jsonObject.getBoolean("updated")) {
                     txtResultado.setText("Registro Alterado: "+obj.getId()+" "+obj.getNome());
 
                     Log.i("APIListar", "onPostExecute()--> Alterado com Sucesso");
