@@ -7,6 +7,7 @@ public class Settings {
 
     public final String API_LISTARCIDADE = "/listarCidades.php";
     public final String API_DELETECIDADE = "/deleteCidades.php";
+    public final String API_UPDATECIDADE = "/updateCidades.php";
 
     public final String API_LISTARESTADO = "/listarEstados.php";
 
