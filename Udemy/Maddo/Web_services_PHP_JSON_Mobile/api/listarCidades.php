@@ -7,7 +7,7 @@
 
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        include ('dbConnection.php');
+        include('dbConnection.php');
 
         $get_api_token = "api_token_example";
 
@@ -29,12 +29,8 @@
             }else{
                 echo "Error. No data available.";
             }
-
         }else{
             $response['auth_key'] = false;
             echo "Error. Authentication refused.";
         }
-
     }
-
-?>

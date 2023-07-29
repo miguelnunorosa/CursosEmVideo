@@ -7,7 +7,7 @@
 
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        include ('dbConnection.php');
+        include('dbConnection.php');
 
         $get_api_token = "api_token_example";
 
@@ -36,5 +36,3 @@
         }
 
     }
-
-?>
