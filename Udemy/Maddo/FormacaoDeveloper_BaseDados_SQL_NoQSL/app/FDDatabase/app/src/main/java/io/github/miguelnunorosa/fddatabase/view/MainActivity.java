@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         obj = new Aluno();
-        alunoController = new AlunoController();
+        alunoController = new AlunoController( getApplicationContext() );
 
         obj.setNome("Aluno x");
         obj.setEmail("asd@ads.asd");

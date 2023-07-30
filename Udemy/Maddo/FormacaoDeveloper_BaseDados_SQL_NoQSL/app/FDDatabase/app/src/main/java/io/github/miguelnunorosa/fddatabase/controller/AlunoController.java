@@ -1,12 +1,18 @@
 package io.github.miguelnunorosa.fddatabase.controller;
 
+import android.content.Context;
 import android.util.Log;
 
+import java.net.ContentHandler;
+
+import io.github.miguelnunorosa.fddatabase.database.AppDatabase;
 import io.github.miguelnunorosa.fddatabase.model.Aluno;
 
-public class AlunoController {
+public class AlunoController extends AppDatabase {
 
-    public AlunoController() {}
+    public AlunoController(Context context) {
+        super(context);
+    }
 
 
     //generic methods for CRUD (Create/Read/Update/Delete)
