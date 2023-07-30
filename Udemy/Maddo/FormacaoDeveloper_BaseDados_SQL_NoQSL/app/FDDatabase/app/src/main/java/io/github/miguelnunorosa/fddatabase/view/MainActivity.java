@@ -22,13 +22,10 @@ public class MainActivity extends AppCompatActivity {
         obj = new Aluno();
         alunoController = new AlunoController( getApplicationContext() );
 
-        obj.setNome("Aluno x");
-        obj.setEmail("asd@ads.asd");
-        Log.i("FD-LOG (MainActivity) -> ", "Nome: " + obj.getNome() + " (" + obj.getEmail() + " )");
-
-
-        alunoController.save(obj);
-
-
+        //obj.setNome("Aluno x");
+        //obj.setEmail("asd@ads.asd");
+        //alunoController.save(obj);
     }
+
+
 }

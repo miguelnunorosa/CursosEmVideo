@@ -18,7 +18,7 @@ public class AlunoController extends AppDatabase {
     //generic methods for CRUD (Create/Read/Update/Delete)
 
     public void save(Aluno obj){
-        Log.i("FD-LOG (AlunoController) -> ", "Nome: " + obj.getNome() + " (" + obj.getEmail() + " )");
+        Log.i("FD-LOG", "(AlunoController) -> Nome: " + obj.getNome() + " (" + obj.getEmail() + " )");
     }
 
 
