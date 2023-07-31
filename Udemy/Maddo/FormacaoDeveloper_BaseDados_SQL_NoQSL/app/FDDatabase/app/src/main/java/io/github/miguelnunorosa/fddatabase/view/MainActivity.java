@@ -76,6 +76,24 @@ public class MainActivity extends AppCompatActivity {
             Log.i("FD-LOG", "ID " + objAluno.getId() + " | Nome: " + objAluno.getNome() + " | Email: " + objAluno.getEmail() + " | Status: " + objAluno.isStatus());
         }
 
+
+
+        /*
+        * Exercice:
+        * Create 15 records in the ALUNO table, generating the data dynamically and then use the list method to display the result in LogCat.
+        * */
+        for (int i = 0; i < 15; i++) {
+            objAluno.setNome("Nome #" + (i+1));
+            objAluno.setEmail("Email #" + (i+1));
+            if(i % 2 == 0)
+                objAluno.setStatus(true);
+            else
+                objAluno.setStatus(false);
+
+            alunoController.insert(objAluno);
+            Log.i("FD-LOG", "(MainActivity) -> CREATE ALUNO: " + "ID " + (i+1) + " Nome: " + objAluno.getNome()+i + "Email: " + objAluno.getEmail() + " Status: " + objAluno.isStatus());
+        }
+
     }
 
 
