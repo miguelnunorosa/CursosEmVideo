@@ -29,6 +29,20 @@ public class AlunoController extends AppDatabase {
         return insert("aluno", data); //insert data on database
     }
 
+    public boolean update(Aluno objAluno) {
+
+        data = new ContentValues();
+
+        data.put("id", objAluno.getId());
+        data.put("nome", objAluno.getNome());
+        data.put("email", objAluno.getEmail());
+        data.put("status", objAluno.isStatus());
+
+        Log.e("FD-LOG", "(AlunoController) -> Nome: " + objAluno.getNome() + " | Email: " + objAluno.getEmail() + " | Status: " + objAluno.isStatus());
+
+        return update("aluno", data); //insert data on database
+    }
+
 
 
 }

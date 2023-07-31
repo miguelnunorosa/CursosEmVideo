@@ -9,8 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import java.util.Calendar;
 
-import io.github.miguelnunorosa.fddatabase.model.Aluno;
-
 
 public class AppDatabase extends SQLiteOpenHelper {
 
@@ -58,8 +56,12 @@ public class AppDatabase extends SQLiteOpenHelper {
 
     public boolean insert(String tabela, ContentValues data){
         boolean retorno = true;
+        dataHora = getDateTime();
 
         try{
+            data.put("dataInc", dataHora);
+            data.put("dataAlt", dataHora);
+
             retorno = db.insert(tabela, null, data) > 0; //if retorno > 0 means that we can save data on database
         }catch (SQLException e){
             Log.e("FD-LOG", "(AppDatabase) -> Error inserted data on aluno table. " + e.getMessage());
@@ -70,6 +72,22 @@ public class AppDatabase extends SQLiteOpenHelper {
     }
 
 
+    public boolean update(String tabela, ContentValues data){
+        boolean retorno = true;
+        dataHora = getDateTime();
+
+        try{
+            data.put("dataAlt", dataHora);
+            int id = data.getAsInteger("id");
+
+            retorno = db.update(tabela, data, "id=?", new String[]{Integer.toString(id)}) > 0; //if retorno > 0 means that we can save data on database
+        }catch (SQLException e){
+            Log.e("FD-LOG", "(AppDatabase) -> Error when update aluno " + e.getMessage());
+            return false;
+        }
+
+        return retorno;
+    }
 
 
 
@@ -105,7 +123,7 @@ public class AppDatabase extends SQLiteOpenHelper {
 
             return day + "/" + month + "/" + year + " - " + hour + ":" + minute + ":" + second;
         }catch (Exception e){
-            return "00/00/00 - 00:00:00";
+            return "00/00/0000 - 00:00:00";
         }
 
     }
