@@ -44,5 +44,15 @@ public class AlunoController extends AppDatabase {
     }
 
 
+    public boolean delete(Aluno objAluno) {
+
+        data = new ContentValues();
+
+        data.put("id", objAluno.getId());
+
+        return delete("aluno", data); //insert data on database
+    }
+
+
 
 }

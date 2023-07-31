@@ -91,7 +91,20 @@ public class AppDatabase extends SQLiteOpenHelper {
 
 
 
+    public boolean delete(String tabela, ContentValues data){
+        boolean retorno = true;
 
+        try{
+            int id = data.getAsInteger("id");
+
+            retorno = db.delete(tabela, "id=?", new String[]{Integer.toString(id)}) > 0; //if retorno > 0 means that we can save data on database
+        }catch (SQLException e){
+            Log.e("FD-LOG", "(AppDatabase) -> Error when delete aluno " + e.getMessage());
+            return false;
+        }
+
+        return retorno;
+    }
 
 
 
