@@ -16,35 +16,19 @@ public class AlunoController extends AppDatabase {
     }
 
 
-    //generic methods for CRUD (Create/Read/Update/Delete)
+    public boolean insert(Aluno objAluno) {
 
-    public boolean save(Aluno obj){
         data = new ContentValues();
 
-        data.put("nome", obj.getNome());
-        data.put("email", obj.getEmail());
-        data.put("status", obj.isStatus());
+        data.put("nome", objAluno.getNome());
+        data.put("email", objAluno.getEmail());
+        data.put("status", objAluno.isStatus());
 
-        Log.i("FD-LOG", "(AlunoController) -> Nome: " + obj.getNome() + " (" + obj.getEmail() + " )" + "Status: " + obj.isStatus());
+        Log.e("FD-LOG", "(AlunoController) -> Nome: " + objAluno.getNome() + " | Email: " + objAluno.getEmail() + " | Status: " + objAluno.isStatus());
 
-        return insertData("aluno", data);
+        return insert("aluno", data); //insert data on database
     }
 
-
-
-    public void delete(Aluno obj){}
-
-
-    public void update(Aluno obj){}
-
-
-    public void read(Aluno obj){}
-
-
-    public void filter(Aluno obj){}
-
-
-    public void changeStatus(Aluno obj){}
 
 
 }

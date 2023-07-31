@@ -12,26 +12,22 @@ import io.github.miguelnunorosa.fddatabase.model.Aluno;
 
 public class MainActivity extends AppCompatActivity {
 
-    Aluno objAluno;
-    AlunoController alunoController;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        objAluno = new Aluno();
-        alunoController = new AlunoController( getApplicationContext() );
+        AlunoController alunoController = new AlunoController(getApplicationContext());
+        Aluno objAluno = new Aluno();
 
-        objAluno.setNome("TESTE");
-        objAluno.setEmail("asd@ad.asd");
+        objAluno.setNome("Mike");
+        objAluno.setEmail("asd@asd.asd");
         objAluno.setStatus(true);
 
-        if( alunoController.save(objAluno) ){
-            Log.i("FD-LOG", "(AlunoController) -> Nome: " + objAluno.getNome() + " / " + objAluno.getEmail() + " / Status: " + objAluno.isStatus());
-            Toast.makeText(getApplicationContext(), "(AlunoController) -> Nome: " + objAluno.getNome() + " / " + objAluno.getEmail() + "  / Status: " + objAluno.isStatus(), Toast.LENGTH_SHORT).show();
+        if(alunoController.insert(objAluno)){
+            Toast.makeText(getApplicationContext(), "aluno " + objAluno.getNome() + " Saved.", Toast.LENGTH_LONG).show();
         }else{
-            Log.i("FD-LOG", "(AlunoController) -> Erro ao tentar salvar aluno> Nome: " + objAluno.getNome() + " (" + objAluno.getEmail() + " )" + "Status: " + objAluno.isStatus());
+            Toast.makeText(getApplicationContext(), "ERROR on save data from aluno " + objAluno.getNome(), Toast.LENGTH_LONG).show();
         }
 
     }
