@@ -4,12 +4,15 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.List;
+
 import io.github.miguelnunorosa.fddatabase.database.AppDatabase;
 import io.github.miguelnunorosa.fddatabase.model.Aluno;
 
 public class AlunoController extends AppDatabase {
 
     ContentValues data;
+    List<Aluno> alunos;
 
     public AlunoController(Context context) {
         super(context);
@@ -51,6 +54,14 @@ public class AlunoController extends AppDatabase {
         data.put("id", objAluno.getId());
 
         return delete("aluno", data); //insert data on database
+    }
+
+
+    public List<Aluno> listAll(){
+
+        alunos = getAllAlunos();
+
+        return alunos;
     }
 
 

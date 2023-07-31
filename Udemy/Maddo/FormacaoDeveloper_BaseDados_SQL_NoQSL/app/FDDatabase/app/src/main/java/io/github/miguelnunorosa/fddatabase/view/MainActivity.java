@@ -70,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "ERROR when delete data from aluno " + objAluno.getNome(), Toast.LENGTH_LONG).show();
         }
 
+
+        //list all data
+        for (Aluno aluno: alunoController.listAll()) {
+            Log.i("FD-LOG", "ID " + objAluno.getId() + " | Nome: " + objAluno.getNome() + " | Email: " + objAluno.getEmail() + " | Status: " + objAluno.isStatus());
+        }
+
     }
 
 

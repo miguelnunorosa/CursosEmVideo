@@ -1,5 +1,6 @@
 package io.github.miguelnunorosa.fddatabase.database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,7 +8,12 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import io.github.miguelnunorosa.fddatabase.model.Aluno;
 
 
 public class AppDatabase extends SQLiteOpenHelper {
@@ -22,13 +28,14 @@ public class AppDatabase extends SQLiteOpenHelper {
             " dataInc TEXT,\n" +
             " dataAlt TEXT )";
 
-
+    private static final String LIST_ALL_DATA = "SELECT * FROM aluno ORDER BY nome";
+    private String SQL;
     private String dataHora;
     Cursor cursor;
     SQLiteDatabase db;
 
 
-    public AppDatabase(Context ctx){
+    public AppDatabase(Context ctx){ //CREATE DATABASE
         super(ctx,DB_NAME,null,DB_VERSION);
 
         db = getWritableDatabase();
@@ -38,7 +45,7 @@ public class AppDatabase extends SQLiteOpenHelper {
 
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db) { //CREATE TABLE
 
         try {
             db.execSQL(TABELA_ALUNO);
@@ -50,11 +57,13 @@ public class AppDatabase extends SQLiteOpenHelper {
 
     }
 
+
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { //ALTER TABLE
+    }
 
 
-    public boolean insert(String tabela, ContentValues data){
+    public boolean insert(String tabela, ContentValues data){ //INSERT DATA
         boolean retorno = true;
         dataHora = getDateTime();
 
@@ -72,7 +81,7 @@ public class AppDatabase extends SQLiteOpenHelper {
     }
 
 
-    public boolean update(String tabela, ContentValues data){
+    public boolean update(String tabela, ContentValues data){ //UPDATE DATA
         boolean retorno = true;
         dataHora = getDateTime();
 
@@ -90,8 +99,7 @@ public class AppDatabase extends SQLiteOpenHelper {
     }
 
 
-
-    public boolean delete(String tabela, ContentValues data){
+    public boolean delete(String tabela, ContentValues data){ //DELETE DATA
         boolean retorno = true;
 
         try{
@@ -107,6 +115,38 @@ public class AppDatabase extends SQLiteOpenHelper {
     }
 
 
+    @SuppressLint("Range")
+    public List<Aluno> getAllAlunos(){ //SELECT (ALL) DATA
+
+        List<Aluno> list = new ArrayList<>();
+        Aluno obj;
+        boolean status = false;
+
+        try{
+            cursor = db.rawQuery(LIST_ALL_DATA, null);
+
+            if(cursor.moveToFirst()){
+                do {
+                    obj = new Aluno();
+
+                    obj.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                    obj.setNome(cursor.getString(cursor.getColumnIndex("nome")));
+                    obj.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+
+                    status = cursor.getInt(cursor.getColumnIndex("status")) != 0;
+
+                    obj.setStatus(status);
+
+                    list.add(obj);
+                }while (cursor.moveToNext());
+            }
+
+        }catch (SQLException e){
+            Log.e("FD-LOG", "(AppDatabase) -> Error when listing data from aluno " + e.getMessage());
+        }
+
+        return list;
+    }
 
 
 
@@ -140,6 +180,5 @@ public class AppDatabase extends SQLiteOpenHelper {
         }
 
     }
-
 
 }
