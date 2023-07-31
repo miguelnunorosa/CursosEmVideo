@@ -1,5 +1,6 @@
 package io.github.miguelnunorosa.fddatabase.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -52,5 +53,18 @@ public class AppDatabase extends SQLiteOpenHelper {
     }
 
 
-    //
+
+    public boolean insertData(String table, ContentValues data){
+        boolean retorno = true;
+
+        try{
+            retorno = db.insert(table, null, data) > 0;
+        }catch (SQLException e){
+            retorno = false;
+            Log.e("FD-LOG", "(AppDatabase) -> Error insert data on table aluno. " + e.getMessage());
+        }
+
+        return retorno;
+    }
+
 }

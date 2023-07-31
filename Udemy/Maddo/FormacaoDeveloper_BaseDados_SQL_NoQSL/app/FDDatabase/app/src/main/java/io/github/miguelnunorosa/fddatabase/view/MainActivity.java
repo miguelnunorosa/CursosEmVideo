@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import io.github.miguelnunorosa.fddatabase.R;
 import io.github.miguelnunorosa.fddatabase.controller.AlunoController;
@@ -11,7 +12,7 @@ import io.github.miguelnunorosa.fddatabase.model.Aluno;
 
 public class MainActivity extends AppCompatActivity {
 
-    Aluno obj;
+    Aluno objAluno;
     AlunoController alunoController;
 
     @Override
@@ -19,12 +20,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        obj = new Aluno();
+        objAluno = new Aluno();
         alunoController = new AlunoController( getApplicationContext() );
 
-        //obj.setNome("Aluno x");
-        //obj.setEmail("asd@ads.asd");
-        //alunoController.save(obj);
+        objAluno.setNome("TESTE");
+        objAluno.setEmail("asd@ad.asd");
+        objAluno.setStatus(true);
+
+        if( alunoController.save(objAluno) ){
+            Log.i("FD-LOG", "(AlunoController) -> Nome: " + objAluno.getNome() + " / " + objAluno.getEmail() + " / Status: " + objAluno.isStatus());
+            Toast.makeText(getApplicationContext(), "(AlunoController) -> Nome: " + objAluno.getNome() + " / " + objAluno.getEmail() + "  / Status: " + objAluno.isStatus(), Toast.LENGTH_SHORT).show();
+        }else{
+            Log.i("FD-LOG", "(AlunoController) -> Erro ao tentar salvar aluno> Nome: " + objAluno.getNome() + " (" + objAluno.getEmail() + " )" + "Status: " + objAluno.isStatus());
+        }
+
     }
 
 
