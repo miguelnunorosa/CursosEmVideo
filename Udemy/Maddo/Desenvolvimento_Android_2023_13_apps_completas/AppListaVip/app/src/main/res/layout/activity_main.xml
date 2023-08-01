@@ -7,12 +7,124 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <EditText
+        android:id="@+id/edtxt_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="16dp"
+        android:height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <EditText
+        android:id="@+id/edtxt_sobrenome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/lastname"
+        app:layout_constraintEnd_toEndOf="@+id/edtxt_nome"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_nome"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_nome" />
+
+    <EditText
+        android:id="@+id/edtxt_courseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/courseName"
+        app:layout_constraintEnd_toEndOf="@+id/edtxt_sobrenome"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_sobrenome"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_sobrenome" />
+
+
+    <EditText
+        android:id="@+id/edtxt_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:height="48dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/phoneNumber"
+        app:layout_constraintEnd_toEndOf="@+id/edtxt_courseName"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_courseName"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_courseName" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/bootstrapButton2"
+        android:layout_width="131dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="60dp"
+        android:text="@string/txtclear"
+        android:textStyle="bold"
+        app:bootstrapBrand="warning"
+        app:buttonMode="regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_phone"
+        app:layout_constraintVertical_bias="0.397"
+        app:roundedCorners="true" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/bootstrapButton"
+        android:layout_width="131dp"
+        android:layout_height="71dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/txtSave"
+        android:textStyle="bold"
+        app:bootstrapBrand="success"
+        app:buttonMode="regular"
+        app:layout_constraintBottom_toBottomOf="@+id/bootstrapButton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bootstrapButton2"
+        app:layout_constraintVertical_bias="1.0"
+        app:roundedCorners="true" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="281dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="44dp"
+        android:text="@string/txtFinish"
+        android:textStyle="bold"
+        app:bootstrapBrand="primary"
+        app:buttonMode="regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bootstrapButton"
+        app:layout_constraintStart_toStartOf="@+id/bootstrapButton2"
+        app:roundedCorners="true" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

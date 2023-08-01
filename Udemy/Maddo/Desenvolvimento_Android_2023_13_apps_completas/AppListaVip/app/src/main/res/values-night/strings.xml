@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txtclear">Limpar</string>
+    <string name="txtSave">Guardar</string>
+    <string name="txtFinish">Finalizar</string>
+</resources>

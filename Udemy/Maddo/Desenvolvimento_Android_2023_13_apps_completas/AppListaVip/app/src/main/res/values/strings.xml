@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">AppListaVip</string>
+    <string name="app_name">App Lista Vip</string>
+    <string name="name">Nome</string>
+    <string name="lastname">Sobrenome</string>
+    <string name="courseName">Nome do Curso</string>
+    <string name="phoneNumber">Número Telefone</string>
+    <string name="txtclear">Limpar</string>
+    <string name="txtSave">Guardar</string>
+    <string name="txtFinish">Finalizar</string>
 </resources>
