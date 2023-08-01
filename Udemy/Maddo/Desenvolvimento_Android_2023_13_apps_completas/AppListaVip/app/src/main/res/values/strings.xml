@@ -7,4 +7,5 @@
     <string name="txtclear">Limpar</string>
     <string name="txtSave">Guardar</string>
     <string name="txtFinish">Finalizar</string>
+    <string name="phone">Telefone</string>
 </resources>
