@@ -1,4 +1,4 @@
 package io.github.miguelnunorosa.applistavip.controller;
 
-public class CursoController {
+public class PessoaController {
 }
