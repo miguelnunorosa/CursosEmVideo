@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <TextView android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
@@ -20,8 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.061" />
 
-    <EditText
-        android:id="@+id/edtxt_nome"
+    <EditText android:id="@+id/edtxt_firstname"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -36,9 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
-    <EditText
-        android:id="@+id/edtxt_sobrenome"
+    <EditText android:id="@+id/edtxt_lastname"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -48,12 +44,11 @@
         android:hint="@string/lastname"
         android:inputType="text"
         android:text="@string/lastname"
-        app:layout_constraintEnd_toEndOf="@+id/edtxt_nome"
-        app:layout_constraintStart_toStartOf="@+id/edtxt_nome"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_nome" />
+        app:layout_constraintEnd_toEndOf="@+id/edtxt_firstname"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_firstname"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_firstname" />
 
-    <EditText
-        android:id="@+id/edtxt_courseName"
+    <EditText android:id="@+id/edtxt_courseName"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -63,13 +58,11 @@
         android:hint="@string/courseName"
         android:inputType="text"
         android:text="@string/courseName"
-        app:layout_constraintEnd_toEndOf="@+id/edtxt_sobrenome"
-        app:layout_constraintStart_toStartOf="@+id/edtxt_sobrenome"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_sobrenome" />
+        app:layout_constraintEnd_toEndOf="@+id/edtxt_lastname"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_lastname"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_lastname" />
 
-
-    <EditText
-        android:id="@+id/edtxt_phone"
+    <EditText android:id="@+id/edtxt_phone"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -77,14 +70,13 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/phone"
-        android:inputType="number"
+        android:inputType="phone"
         android:text="@string/phoneNumber"
         app:layout_constraintEnd_toEndOf="@+id/edtxt_courseName"
         app:layout_constraintStart_toStartOf="@+id/edtxt_courseName"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_courseName" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnSave"
+    <com.beardedhen.androidbootstrap.BootstrapButton android:id="@+id/btnSave"
         android:layout_width="131dp"
         android:layout_height="100dp"
         android:layout_marginEnd="64dp"
@@ -99,8 +91,7 @@
         app:layout_constraintVertical_bias="1.0"
         app:roundedCorners="true" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnLimpar"
+    <com.beardedhen.androidbootstrap.BootstrapButton android:id="@+id/btnLimpar"
         android:layout_width="131dp"
         android:layout_height="100dp"
         android:layout_marginStart="60dp"
@@ -114,8 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtxt_phone"
         app:roundedCorners="true" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnFinalizar"
+    <com.beardedhen.androidbootstrap.BootstrapButton android:id="@+id/btnFinalizar"
         android:layout_width="292dp"
         android:layout_height="62dp"
         android:layout_marginTop="12dp"
