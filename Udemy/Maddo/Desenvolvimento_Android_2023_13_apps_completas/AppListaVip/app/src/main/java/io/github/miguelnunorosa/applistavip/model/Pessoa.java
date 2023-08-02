@@ -7,14 +7,8 @@ public class Pessoa {
     private String curso;
     private String telefone;
 
-    public Pessoa(){}
 
-    public Pessoa(String nome, String apelido, String curso, String telefone) {
-        this.nome = nome;
-        this.apelido = apelido;
-        this.curso = curso;
-        this.telefone = telefone;
-    }
+    public Pessoa(){}
 
 
     public String getNome() {
@@ -47,6 +41,17 @@ public class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                " nome='" + nome + '\'' +
+                ", apelido='" + apelido + '\'' +
+                ", curso='" + curso + '\'' +
+                ", telefone=' " + telefone + '\'' +
+                '}';
     }
 
 

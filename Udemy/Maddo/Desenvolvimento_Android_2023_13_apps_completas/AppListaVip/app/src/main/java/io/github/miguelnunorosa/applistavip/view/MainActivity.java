@@ -1,16 +1,16 @@
 package io.github.miguelnunorosa.applistavip.view;
 
+import io.github.miguelnunorosa.applistavip.R;
+import io.github.miguelnunorosa.applistavip.model.Pessoa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
-import io.github.miguelnunorosa.applistavip.R;
-import io.github.miguelnunorosa.applistavip.model.Pessoa;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     BootstrapButton btnSave, btnLimpar, btnFinalizar;
     Pessoa pessoa;
     Pessoa outraPessoa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         pessoa.setNome("nome da pessoa");
         pessoa.setApelido("apelido da pessoa");
         pessoa.setCurso("curso da pessoa");
-        pessoa.setTelefone("teelfone da pessoa");
+        pessoa.setTelefone("telefone da pessoa");
         Log.i("AppListaVIP", "Nome: " + pessoa.getNome() + " | Apelido: " + pessoa.getApelido() + " | Curso: " + pessoa.getCurso() + " Contato: " + pessoa.getTelefone());
-
+        Log.i("AppListaVIP","Using toString: " + pessoa.toString());
 
         outraPessoa = new Pessoa();
         outraPessoa.setNome("Oscar");
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         outraPessoa.setCurso("Android");
         outraPessoa.setTelefone("123456789");
         Log.i("AppListaVIP", "Nome: " + outraPessoa.getNome() + " | Apelido: " + outraPessoa.getApelido() + " | Curso: " + outraPessoa.getCurso() + " Contato: " + outraPessoa.getTelefone());
+        Log.i("AppListaVIP","Using toString: " + outraPessoa.toString());
 
     }
 
