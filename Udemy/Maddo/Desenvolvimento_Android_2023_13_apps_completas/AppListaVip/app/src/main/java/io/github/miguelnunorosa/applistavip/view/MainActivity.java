@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupScreen();
+        actionsForButtons();
+
 
         pessoa = new Pessoa();
         pessoa.setNome("Oscar");
@@ -51,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("AppListaVIP","Using toString: " + outraPessoa.toString());*/
 
 
-        actionsForButtons();
     }
 
 
@@ -68,14 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void actionsForButtons(){
-        btnLimpar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                edtxt_name.setText("");
-                edtxt_lastname.setText("");
-                edtxt_courseName.setText("");
-                edtxt_phone.setText("");
-            }
+        btnLimpar.setOnClickListener(view -> {
+            edtxt_name.setText("");
+            edtxt_lastname.setText("");
+            edtxt_courseName.setText("");
+            edtxt_phone.setText("");
         });
 
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
