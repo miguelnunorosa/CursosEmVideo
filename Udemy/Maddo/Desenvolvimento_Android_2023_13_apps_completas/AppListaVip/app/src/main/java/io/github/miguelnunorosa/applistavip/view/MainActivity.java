@@ -34,18 +34,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = getSharedPreferences(PREFERENCES_NAME, 0);
+        controller = new PessoaController();
+
         setupScreen();
         actionsForButtons();
 
+        //initialData();
         tempData();
+        clearEditTexts();
 
-        edtxt_name.setText(pessoa.getNome());
-        edtxt_lastname.setText(pessoa.getApelido());
-        edtxt_courseName.setText(pessoa.getCurso());
-        edtxt_phone.setText(pessoa.getTelefone());
+        //load data from SharedPreferences
+        sharedPreferencesData();
 
-        controller = new PessoaController();
     }
+
 
 
     private void setupScreen() {
@@ -79,13 +81,40 @@ public class MainActivity extends AppCompatActivity {
         Log.i("AppListaVIP", "Using toString: " + outraPessoa.toString());
     }
 
+    private void initialData(){
+        //initial data demo
+        edtxt_name.setText(pessoa.getNome());
+        edtxt_lastname.setText(pessoa.getApelido());
+        edtxt_courseName.setText(pessoa.getCurso());
+        edtxt_phone.setText(pessoa.getTelefone());
+
+        //initial data are from static data. After first save, all data come from SharedPreferences
+    }
+
+    private void sharedPreferencesData() {
+        pessoa.setNome(preferences.getString("nome", ""));
+        pessoa.setApelido(preferences.getString("apelido", ""));
+        pessoa.setCurso(preferences.getString("curso", ""));
+        pessoa.setTelefone(preferences.getString("telefone", ""));
+
+        //add data to fields
+        edtxt_name.setText(pessoa.getNome());
+        edtxt_lastname.setText(pessoa.getApelido());
+        edtxt_courseName.setText(pessoa.getCurso());
+        edtxt_phone.setText(pessoa.getTelefone());
+    }
+
+    private void clearEditTexts(){
+        edtxt_name.setText("");
+        edtxt_lastname.setText("");
+        edtxt_courseName.setText("");
+        edtxt_phone.setText("");
+    }
+
     private void actionsForButtons() {
 
         btnLimpar.setOnClickListener(view -> {
-            edtxt_name.setText("");
-            edtxt_lastname.setText("");
-            edtxt_courseName.setText("");
-            edtxt_phone.setText("");
+            clearEditTexts();
         });
 
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
