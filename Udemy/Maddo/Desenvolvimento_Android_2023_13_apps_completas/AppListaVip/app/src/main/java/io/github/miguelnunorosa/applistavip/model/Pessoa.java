@@ -8,7 +8,8 @@ public class Pessoa {
     private String telefone;
 
 
-    public Pessoa(){}
+    public Pessoa() {
+    }
 
 
     public String getNome() {
@@ -46,7 +47,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
+        return " Pessoa {" +
                 " nome='" + nome + '\'' +
                 ", apelido='" + apelido + '\'' +
                 ", curso='" + curso + '\'' +
