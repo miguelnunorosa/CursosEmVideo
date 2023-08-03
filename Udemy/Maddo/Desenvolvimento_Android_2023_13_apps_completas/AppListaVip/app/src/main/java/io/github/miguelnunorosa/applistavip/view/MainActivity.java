@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
     public static final String PREFERENCES_NAME = "pref_listavip";
+    SharedPreferences.Editor listaVip;
 
     EditText edtxt_name, edtxt_lastname, edtxt_courseName, edtxt_phone;
     BootstrapButton btnSave, btnLimpar, btnFinalizar;
@@ -115,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
 
         btnLimpar.setOnClickListener(view -> {
             clearEditTexts();
+
+            //clear sharedPreferences
+            listaVip.clear();
+            listaVip.apply();
         });
 
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
@@ -135,13 +140,14 @@ public class MainActivity extends AppCompatActivity {
 
                 controller.saveData(pessoa);
 
-                SharedPreferences.Editor listaVip = preferences.edit();
+                listaVip = preferences.edit();
                 listaVip.putString("nome", pessoa.getNome());
                 listaVip.putString("apelido", pessoa.getApelido());
                 listaVip.putString("curso", pessoa.getCurso());
                 listaVip.putString("telefone", pessoa.getTelefone());
 
                 listaVip.apply(); //save to SharedPreferences
+                clearEditTexts();
 
                 Toast.makeText(MainActivity.this, "Guardado! " + pessoa.toString(), Toast.LENGTH_LONG).show();
                 Log.i("AppListaVIP", "Using toString: " + pessoa.toString());
