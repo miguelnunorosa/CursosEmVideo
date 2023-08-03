@@ -18,15 +18,10 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences preferences;
-    public static final String PREFERENCES_NAME = "pref_listavip";
-    SharedPreferences.Editor listaVip;
-
     EditText edtxt_name, edtxt_lastname, edtxt_courseName, edtxt_phone;
     BootstrapButton btnSave, btnLimpar, btnFinalizar;
-    Pessoa pessoa;
+    Pessoa pessoa, outraPessoa;
     PessoaController controller;
-    Pessoa outraPessoa;
 
 
     @Override
@@ -34,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        preferences = getSharedPreferences(PREFERENCES_NAME, 0);
-        controller = new PessoaController();
+        controller = new PessoaController(MainActivity.this);
 
         setupScreen();
         actionsForButtons();
@@ -46,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         //load data from SharedPreferences
         sharedPreferencesData();
-
     }
 
 
@@ -93,10 +86,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sharedPreferencesData() {
-        pessoa.setNome(preferences.getString("nome", ""));
-        pessoa.setApelido(preferences.getString("apelido", ""));
-        pessoa.setCurso(preferences.getString("curso", ""));
-        pessoa.setTelefone(preferences.getString("telefone", ""));
+        //data from PessoaController
+        controller.getData(pessoa);
 
         //add data to fields
         edtxt_name.setText(pessoa.getNome());
@@ -118,8 +109,7 @@ public class MainActivity extends AppCompatActivity {
             clearEditTexts();
 
             //clear sharedPreferences
-            listaVip.clear();
-            listaVip.apply();
+            controller.clearData();
         });
 
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
@@ -140,13 +130,6 @@ public class MainActivity extends AppCompatActivity {
 
                 controller.saveData(pessoa);
 
-                listaVip = preferences.edit();
-                listaVip.putString("nome", pessoa.getNome());
-                listaVip.putString("apelido", pessoa.getApelido());
-                listaVip.putString("curso", pessoa.getCurso());
-                listaVip.putString("telefone", pessoa.getTelefone());
-
-                listaVip.apply(); //save to SharedPreferences
                 clearEditTexts();
 
                 Toast.makeText(MainActivity.this, "Guardado! " + pessoa.toString(), Toast.LENGTH_LONG).show();
