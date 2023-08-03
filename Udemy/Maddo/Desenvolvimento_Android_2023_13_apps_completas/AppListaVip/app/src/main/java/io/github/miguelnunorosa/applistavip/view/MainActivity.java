@@ -6,6 +6,7 @@ import io.github.miguelnunorosa.applistavip.model.Pessoa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,9 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences preferences;
+    public static final String PREFERENCES_NAME = "pref_listavip";
 
     EditText edtxt_name, edtxt_lastname, edtxt_courseName, edtxt_phone;
     BootstrapButton btnSave, btnLimpar, btnFinalizar;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        preferences = getSharedPreferences(PREFERENCES_NAME, 0);
         setupScreen();
         actionsForButtons();
 
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actionsForButtons() {
+
         btnLimpar.setOnClickListener(view -> {
             edtxt_name.setText("");
             edtxt_lastname.setText("");
@@ -100,10 +106,19 @@ public class MainActivity extends AppCompatActivity {
 
                 controller.saveData(pessoa);
 
+                SharedPreferences.Editor listaVip = preferences.edit();
+                listaVip.putString("nome", pessoa.getNome());
+                listaVip.putString("apelido", pessoa.getApelido());
+                listaVip.putString("curso", pessoa.getCurso());
+                listaVip.putString("telefone", pessoa.getTelefone());
+
+                listaVip.apply(); //save to SharedPreferences
+
                 Toast.makeText(MainActivity.this, "Guardado! " + pessoa.toString(), Toast.LENGTH_LONG).show();
                 Log.i("AppListaVIP", "Using toString: " + pessoa.toString());
             }
         });
+
     }
 
 
