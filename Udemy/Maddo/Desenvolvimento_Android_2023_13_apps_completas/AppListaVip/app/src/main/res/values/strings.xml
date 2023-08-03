@@ -8,4 +8,5 @@
     <string name="txtSave">Guardar</string>
     <string name="txtFinish">Finalizar</string>
     <string name="phone">Telefone</string>
+    <string name="selectCourse">Selecione um Curso:</string>
 </resources>
