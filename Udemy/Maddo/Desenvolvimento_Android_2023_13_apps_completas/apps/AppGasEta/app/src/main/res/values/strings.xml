@@ -6,4 +6,6 @@
     <string name="txt_limpar">Limpar</string>
     <string name="txt_sair">Sair</string>
     <string name="txt_result">Resultado</string>
+    <string name="txt_hint_gasolina">R$ Gasolina</string>
+    <string name="txt_hint_etanol">R$ Etanol</string>
 </resources>
