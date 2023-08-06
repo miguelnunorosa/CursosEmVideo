@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,17 +31,17 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtxt_phone"
+                android:id="@+id/edtxt_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:ems="10"
-                android:hint="@string/phone"
+                android:hint="@string/name"
                 android:importantForAutofill="no"
-                android:inputType="phone"
-                android:text="@string/phoneNumber" />
+                android:inputType="text"
+                android:text="@string/name" />
 
             <EditText
                 android:id="@+id/edtxt_lastname"
@@ -57,6 +57,19 @@
                 android:text="@string/lastname" />
 
             <EditText
+                android:id="@+id/edtxt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="@string/phone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:text="@string/phoneNumber" />
+
+            <EditText
                 android:id="@+id/edtxt_courseName"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -68,19 +81,6 @@
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:text="@string/courseName" />
-
-            <EditText
-                android:id="@+id/edtxt_firstname"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="@string/name"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:text="@string/name" />
 
             <TextView
                 android:id="@+id/txViewCourseSelection"
@@ -99,38 +99,44 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp" />
 
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/btnLimpar"
-                android:layout_width="131dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/txtclear"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                app:bootstrapBrand="warning"
-                app:buttonMode="regular"
-                app:roundedCorners="true" />
-
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/btnSave"
-                android:layout_width="131dp"
-                android:layout_height="100dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/txtSave"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                app:bootstrapBrand="success"
-                app:buttonMode="regular"
-                app:roundedCorners="true" />
+                android:layout_marginEnd="16dp" >
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/btnLimpar"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:text="@string/txtclear"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    app:bootstrapBrand="warning"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true" />
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/btnSave"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="16dp"
+                    android:text="@string/txtSave"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    app:bootstrapBrand="success"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true" />
+
+            </LinearLayout>
 
             <com.beardedhen.androidbootstrap.BootstrapButton
                 android:id="@+id/btnFinalizar"
-                android:layout_width="292dp"
-                android:layout_height="62dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
