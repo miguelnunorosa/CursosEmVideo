@@ -1,27 +1,34 @@
 package io.github.miguelnunorosa.applistavip.view;
 
 import io.github.miguelnunorosa.applistavip.R;
+import io.github.miguelnunorosa.applistavip.controller.CursoController;
 import io.github.miguelnunorosa.applistavip.controller.PessoaController;
 import io.github.miguelnunorosa.applistavip.model.Pessoa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
     EditText edtxt_name, edtxt_lastname, edtxt_courseName, edtxt_phone;
     BootstrapButton btnSave, btnLimpar, btnFinalizar;
+    Spinner spListNames;
     Pessoa pessoa, outraPessoa;
+    List<String> coursesNames;
     PessoaController controller;
+    CursoController cursoController;
 
 
     @Override
@@ -30,16 +37,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         controller = new PessoaController(MainActivity.this);
+        cursoController = new CursoController();
 
-        setupScreen();
-        actionsForButtons();
 
-        //initialData();
-        tempData();
-        clearEditTexts();
+        setupScreen();           // create all items on screen
+        spinnerWidget();         // Inject data into Spinner item
+        actionsForButtons();     // Define actions for buttons
 
-        //load data from SharedPreferences
-        sharedPreferencesData();
+        //initialData();         // Initial data (for testing only)
+        tempData();              // Insert temporary data into fields
+        clearEditTexts();        // Clear all screen items
+
+        sharedPreferencesData(); //load data from SharedPreferences
     }
 
 
@@ -49,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         edtxt_lastname = findViewById(R.id.edtxt_lastname);
         edtxt_courseName = findViewById(R.id.edtxt_courseName);
         edtxt_phone = findViewById(R.id.edtxt_phone);
+        spListNames = findViewById(R.id.spListNames);
 
         btnSave = findViewById(R.id.btnSave);
         btnLimpar = findViewById(R.id.btnLimpar);
@@ -101,6 +111,22 @@ public class MainActivity extends AppCompatActivity {
         edtxt_lastname.setText("");
         edtxt_courseName.setText("");
         edtxt_phone.setText("");
+    }
+
+
+    private void spinnerWidget(){
+        coursesNames = cursoController.dataForSpinner(); //access data (MainActivity <-> CursoController)
+
+        // we need: 1) Adapter + Layout + 2) Inject data into spinner (coursesNames)
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                                                          android.R.layout.simple_list_item_1,
+                                                          cursoController.dataForSpinner());
+
+        //note:
+        //ArrayAdapter<String> adapter = new ArrayAdapter<>(context, layout, data);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);  //inject data
+        spListNames.setAdapter(adapter);
     }
 
     private void actionsForButtons() {
