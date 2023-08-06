@@ -4,7 +4,9 @@ public class Curso {
 
     private String nomeCurso;
 
-
+    public Curso(String courseName) {
+        this.nomeCurso = courseName;
+    }
 
 
     public String getNomeCurso() {

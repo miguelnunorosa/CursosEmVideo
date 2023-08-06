@@ -1,7 +1,9 @@
 package io.github.miguelnunorosa.applistavip.view;
 
 import io.github.miguelnunorosa.applistavip.R;
+import io.github.miguelnunorosa.applistavip.controller.CursoController;
 import io.github.miguelnunorosa.applistavip.controller.PessoaController;
+import io.github.miguelnunorosa.applistavip.model.Curso;
 import io.github.miguelnunorosa.applistavip.model.Pessoa;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,13 +17,17 @@ import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
     EditText edtxt_name, edtxt_lastname, edtxt_courseName, edtxt_phone;
     BootstrapButton btnSave, btnLimpar, btnFinalizar;
     Pessoa pessoa, outraPessoa;
+    List<Curso> coursesList;
     PessoaController controller;
+    CursoController cursoController;
 
 
     @Override
@@ -30,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         controller = new PessoaController(MainActivity.this);
+        cursoController = new CursoController();
+        coursesList = cursoController.getCoursList();
+
+        int parada = 0;
 
         setupScreen();
         actionsForButtons();
