@@ -6,8 +6,11 @@ import io.github.miguelnunorosa.appgaseta.util.UtilGasEta;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -16,7 +19,12 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtxt_gasolina, edtxt_etanol;
-    BootstrapButton btnSave, btnClean, btnCalculate, btnExit;
+    TextView txtResult;
+    BootstrapButton btnSave, btnClear, btnCalculate, btnExit;
+
+    double priceGasolina, precoEtanol;
+    String resultBestChoice;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         edtxt_gasolina = findViewById(R.id.edtxt_gasolina);
         edtxt_etanol = findViewById(R.id.edtxt_etanol);
         btnCalculate = findViewById(R.id.btnCalculate);
-        btnClean = findViewById(R.id.btnClear);
+        txtResult = findViewById(R.id.txtResult);
+        btnClear = findViewById(R.id.btnClear);
         btnSave = findViewById(R.id.btnSave);
         btnExit = findViewById(R.id.btnExit);
     }
@@ -47,11 +56,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actionsForButtons(){
-        btnClean.setOnClickListener(view -> {
-            clearEditTexts();
 
-            //clear sharedPreferences
-            //controller.clearData();
+        btnCalculate.setOnClickListener(view -> {
+
+            boolean isDadosOK = true;
+
+            if(TextUtils.isEmpty(edtxt_gasolina.getText())){
+                edtxt_gasolina.setError("Obrigatório");
+                edtxt_gasolina.requestFocus();
+                isDadosOK = false;
+            }
+            if(TextUtils.isEmpty(edtxt_etanol.getText())){
+                edtxt_etanol.setError("Obrigatório");
+                edtxt_etanol.requestFocus();
+                isDadosOK = false;
+            }
+
+            if(isDadosOK){
+                resultBestChoice = UtilGasEta.calculateBestOption(Double.parseDouble(edtxt_gasolina.getText().toString()), Double.parseDouble(edtxt_etanol.getText().toString()));
+                txtResult.setText(resultBestChoice);
+            }else{
+                Toast.makeText(MainActivity.this, "Insira os dados obrigatórios!", Toast.LENGTH_LONG).show();
+                Log.e("AppGasEta", "Dados inseridos incorretos.");
+            }
+
+        });
+
+        btnSave.setOnClickListener(view -> {
+            //
+        });
+
+        btnClear.setOnClickListener(view -> {
+            clearEditTexts();
         });
 
         btnExit.setOnClickListener(new View.OnClickListener() {
