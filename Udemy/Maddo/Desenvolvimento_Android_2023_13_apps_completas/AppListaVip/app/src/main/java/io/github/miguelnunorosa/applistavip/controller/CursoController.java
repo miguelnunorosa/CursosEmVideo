@@ -28,7 +28,7 @@ public class CursoController {
     }
 
 
-    public ArrayList<String> DataForSpinner(){
+    public ArrayList<String> dataForSpinner(){
 
         ArrayList<String> data = new ArrayList<>();
 
