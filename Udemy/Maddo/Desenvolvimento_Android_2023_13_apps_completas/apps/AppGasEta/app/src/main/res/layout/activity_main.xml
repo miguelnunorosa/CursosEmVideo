@@ -30,68 +30,43 @@
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/edtxt_firstname"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="text"/>
-
-            <EditText
-                android:id="@+id/edtxt_lastname"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="text"/>
-
-            <EditText
-                android:id="@+id/edtxt_phone"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="phone"/>
-
-            <EditText
-                android:id="@+id/edtxt_courseName"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="text"/>
-
-            <TextView
-                android:id="@+id/txViewCourseSelection"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"/>
-
-            <Spinner
-                android:id="@+id/spListNames"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:orientation="horizontal"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginEnd="16dp" >
+
+                <EditText
+                    android:id="@+id/edtxt_firstname"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="text"/>
+
+                <EditText
+                    android:id="@+id/edtxt_lastname"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="text"/>
+
+            </LinearLayout>
+
+
+
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginStart="16dp"
@@ -99,24 +74,38 @@
                 android:layout_marginEnd="16dp" >
 
                 <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:id="@+id/btnLimpar"
-                    android:layout_width="150dp"
+                    android:id="@+id/btnCalcular"
+                    android:layout_width="110dp"
                     android:layout_height="100dp"
-                    android:layout_margin="16dp"
+                    android:layout_margin="8dp"
+                    android:text="@string/txt_calcular"
                     android:textAllCaps="true"
                     android:textStyle="bold"
-                    app:bootstrapBrand="warning"
+                    app:bootstrapBrand="success"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true" />
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/btnLimpar"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:text="@string/txt_guardar"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    app:bootstrapBrand="primary"
                     app:buttonMode="regular"
                     app:roundedCorners="true" />
 
                 <com.beardedhen.androidbootstrap.BootstrapButton
                     android:id="@+id/btnSave"
-                    android:layout_width="150dp"
+                    android:layout_width="110dp"
                     android:layout_height="100dp"
-                    android:layout_margin="16dp"
+                    android:layout_margin="8dp"
+                    android:text="@string/txt_limpar"
                     android:textAllCaps="true"
                     android:textStyle="bold"
-                    app:bootstrapBrand="success"
+                    app:bootstrapBrand="warning"
                     app:buttonMode="regular"
                     app:roundedCorners="true" />
 
@@ -130,9 +119,10 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="32dp"
+                android:text="@string/txt_sair"
                 android:textAllCaps="true"
                 android:textStyle="bold"
-                app:bootstrapBrand="primary"
+                app:bootstrapBrand="danger"
                 app:buttonMode="regular"
                 app:roundedCorners="true" />
         </LinearLayout>
