@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -21,10 +20,10 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+/*
+    EditText edtxt_gasolina, edtxt_etanol;
+    BootstrapButton btnSave, btnClean, btnCalculate, btnExit;
 
-    EditText edtxt_name, edtxt_lastname, edtxt_courseName, edtxt_phone;
-    BootstrapButton btnSave, btnLimpar, btnFinalizar;
-    Spinner spListNames;
     Pessoa pessoa, outraPessoa;
     List<String> coursesNames;
     PessoaController controller;
@@ -54,15 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupScreen() {
-        edtxt_name = findViewById(R.id.edtxt_firstname);
-        edtxt_lastname = findViewById(R.id.edtxt_lastname);
-        edtxt_courseName = findViewById(R.id.edtxt_courseName);
-        edtxt_phone = findViewById(R.id.edtxt_phone);
-        spListNames = findViewById(R.id.spListNames);
+        edtxt_gasolina = findViewById(R.id.edtxt_gasolina);
+        edtxt_etanol = findViewById(R.id.edtxt_etanol);
 
+        btnCalculate = findViewById(R.id.btnCalculate);
+        btnClean = findViewById(R.id.btnClear);
         btnSave = findViewById(R.id.btnSave);
-        btnLimpar = findViewById(R.id.btnLimpar);
-        btnFinalizar = findViewById(R.id.btnFinalizar);
+        btnExit = findViewById(R.id.btnExit);
     }
 
     private void tempData() {
@@ -165,5 +162,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+*/
 }

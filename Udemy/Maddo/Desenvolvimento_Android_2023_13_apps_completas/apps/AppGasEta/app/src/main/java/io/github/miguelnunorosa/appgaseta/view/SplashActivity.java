@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() { //process in TIMEOUT time
-                Intent mainActivityScreen = new Intent(SplashActivity.this, MainActivity.class);
+                Intent mainActivityScreen = new Intent(SplashActivity.this, GasEtaActivity.class);
 
                 //Note:
                 //Intent mainActivityScreen = new Intent(from screen, to screen);
