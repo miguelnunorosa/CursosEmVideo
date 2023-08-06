@@ -1,160 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAllCaps="true"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
 
-    <EditText
-        android:id="@+id/edtxt_firstname"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="text"
-        android:text="@string/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_height="wrap_content" >
 
-    <EditText
-        android:id="@+id/edtxt_lastname"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/lastname"
-        android:inputType="text"
-        android:text="@string/lastname"
-        app:layout_constraintEnd_toEndOf="@+id/edtxt_firstname"
-        app:layout_constraintStart_toStartOf="@+id/edtxt_firstname"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_firstname" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edtxt_courseName"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/courseName"
-        android:inputType="text"
-        android:text="@string/courseName"
-        app:layout_constraintEnd_toEndOf="@+id/edtxt_lastname"
-        app:layout_constraintStart_toStartOf="@+id/edtxt_lastname"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_lastname" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edtxt_phone"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/phone"
-        android:inputType="phone"
-        android:text="@string/phoneNumber"
-        app:layout_constraintEnd_toEndOf="@+id/edtxt_courseName"
-        app:layout_constraintStart_toStartOf="@+id/edtxt_courseName"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_courseName" />
+            <EditText
+                android:id="@+id/edtxt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="@string/phone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:text="@string/phoneNumber" />
 
+            <EditText
+                android:id="@+id/edtxt_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="@string/lastname"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@string/lastname" />
 
-    <TextView
-        android:id="@+id/txViewCourseSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/selectCourse"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_phone" />
+            <EditText
+                android:id="@+id/edtxt_courseName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="@string/courseName"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@string/courseName" />
 
-    <Spinner
-        android:id="@+id/spListNames"
-        android:layout_width="409dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLimpar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txViewCourseSelection"
-        app:layout_constraintVertical_bias="0.307" />
+            <EditText
+                android:id="@+id/edtxt_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="@string/name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@string/name" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnSave"
-        android:layout_width="131dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="56dp"
-        android:text="@string/txtSave"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        app:bootstrapBrand="success"
-        app:buttonMode="regular"
-        app:layout_constraintBottom_toBottomOf="@+id/btnLimpar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnLimpar"
-        app:layout_constraintVertical_bias="1.0"
-        app:roundedCorners="true" />
+            <TextView
+                android:id="@+id/txViewCourseSelection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/selectCourse" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnFinalizar"
-        android:layout_width="292dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/txtFinish"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        app:bootstrapBrand="primary"
-        app:buttonMode="regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave"
-        app:roundedCorners="true" />
+            <Spinner
+                android:id="@+id/spListNames"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnLimpar"
-        android:layout_width="131dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="136dp"
-        android:text="@string/txtclear"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        app:bootstrapBrand="warning"
-        app:buttonMode="regular"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_phone"
-        app:roundedCorners="true" />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btnLimpar"
+                android:layout_width="131dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/txtclear"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:bootstrapBrand="warning"
+                app:buttonMode="regular"
+                app:roundedCorners="true" />
 
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btnSave"
+                android:layout_width="131dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/txtSave"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:bootstrapBrand="success"
+                app:buttonMode="regular"
+                app:roundedCorners="true" />
 
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/btnFinalizar"
+                android:layout_width="292dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
+                android:text="@string/txtFinish"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:bootstrapBrand="primary"
+                app:buttonMode="regular"
+                app:roundedCorners="true" />
+        </LinearLayout>
 
+    </ScrollView>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
