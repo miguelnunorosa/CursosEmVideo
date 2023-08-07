@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         btnClear = findViewById(R.id.btnClear);
         btnSave = findViewById(R.id.btnSave);
         btnExit = findViewById(R.id.btnExit);
+
+        btnSave.setEnabled(false);
     }
 
     private void clearEditTexts(){
@@ -80,8 +82,10 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(MainActivity.this, "Insira os dados obrigatórios!", Toast.LENGTH_LONG).show();
                 Log.e("AppGasEta", "Dados inseridos incorretos.");
+                btnSave.setEnabled(false);
             }
 
+            btnSave.setEnabled(true);
         });
 
         btnSave.setOnClickListener(view -> {
@@ -96,10 +100,12 @@ public class MainActivity extends AppCompatActivity {
             combustivelGasolina.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
             combustivelEtanol.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
 
+            btnSave.setEnabled(false);
         });
 
         btnClear.setOnClickListener(view -> {
             clearEditTexts();
+            btnSave.setEnabled(false);
         });
 
         btnExit.setOnClickListener(new View.OnClickListener() {
