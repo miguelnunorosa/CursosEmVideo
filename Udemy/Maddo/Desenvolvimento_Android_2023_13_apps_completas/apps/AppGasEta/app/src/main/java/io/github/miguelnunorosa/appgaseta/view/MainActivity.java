@@ -1,6 +1,7 @@
 package io.github.miguelnunorosa.appgaseta.view;
 
 import io.github.miguelnunorosa.appgaseta.R;
+import io.github.miguelnunorosa.appgaseta.controller.CombustivelController;
 import io.github.miguelnunorosa.appgaseta.model.Combustivel;
 import io.github.miguelnunorosa.appgaseta.util.UtilGasEta;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     String resultBestChoice;
     double precoGasolina, precoEtanol;
     Combustivel combustivelGasolina, combustivelEtanol;
+    CombustivelController combustivelController;
 
 
     @Override
@@ -91,20 +93,23 @@ public class MainActivity extends AppCompatActivity {
         btnSave.setOnClickListener(view -> {
             combustivelGasolina = new Combustivel();
             combustivelEtanol = new Combustivel();
+            combustivelController = new CombustivelController(MainActivity.this);
 
-            combustivelGasolina.setFuelTipe("Gasolina");
+            combustivelGasolina.setFuelType("Gasolina");
             combustivelGasolina.setFuelPrice(precoGasolina);
-            combustivelEtanol.setFuelTipe("Etanol");
+            combustivelEtanol.setFuelType("Etanol");
             combustivelEtanol.setFuelPrice(precoEtanol);
 
             combustivelGasolina.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
             combustivelEtanol.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
 
+            combustivelController.saveData(combustivelGasolina);
             btnSave.setEnabled(false);
         });
 
         btnClear.setOnClickListener(view -> {
             clearEditTexts();
+            combustivelController.clearData();
             btnSave.setEnabled(false);
         });
 

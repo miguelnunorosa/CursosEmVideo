@@ -2,18 +2,18 @@ package io.github.miguelnunorosa.appgaseta.model;
 
 public class Combustivel {
 
-    private String fuelTipe, suggestion;
+    private String fuelType, suggestion;
     private double fuelPrice;
 
 
 
-    public String getFuelTipe() {
-        return fuelTipe;
+    public String getFuelType() {
+        return fuelType;
     }
 
 
-    public void setFuelTipe(String fuelTipe) {
-        this.fuelTipe = fuelTipe;
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
     }
 
 
