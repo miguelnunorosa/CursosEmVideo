@@ -11,26 +11,19 @@ public class Combustivel {
         return fuelType;
     }
 
-
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
-
 
     public String getSuggestion() {
         return suggestion;
     }
 
-
     public void setSuggestion(String suggestion) {
         this.suggestion = suggestion;
     }
 
-
-    public double getFuelPrice() {
-        return fuelPrice;
-    }
-
+    public double getFuelPrice() { return fuelPrice;  }
 
     public void setFuelPrice(double fuelPrice) {
         this.fuelPrice = fuelPrice;

@@ -27,7 +27,6 @@ public class CombustivelController {
         preferencesData.apply();
     }
 
-
     public void clearData(){
         preferencesData.clear();
         preferencesData.apply();

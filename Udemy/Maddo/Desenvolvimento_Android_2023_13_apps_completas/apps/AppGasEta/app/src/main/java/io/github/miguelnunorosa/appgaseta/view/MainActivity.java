@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         actionsForButtons();
 
         //example
-        Toast.makeText(this, UtilGasEta.calculateBestOption(5.12, 2.99), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, UtilGasEta.calculateBestOption(5.12, 2.99), Toast.LENGTH_LONG).show();
     }
 
 
