@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import io.github.miguelnunorosa.appgaseta.R;
+import io.github.miguelnunorosa.appgaseta.database.GasEtaDB;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -16,6 +17,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        GasEtaDB db = new GasEtaDB(SplashActivity.this);
 
         changeSplashScreen();
     }
