@@ -1,6 +1,7 @@
 package io.github.miguelnunorosa.appgaseta.view;
 
 import io.github.miguelnunorosa.appgaseta.R;
+import io.github.miguelnunorosa.appgaseta.model.Combustivel;
 import io.github.miguelnunorosa.appgaseta.util.UtilGasEta;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
     TextView txtResult;
     BootstrapButton btnSave, btnClear, btnCalculate, btnExit;
 
-    double priceGasolina, precoEtanol;
     String resultBestChoice;
+    double precoGasolina, precoEtanol;
+    Combustivel combustivelGasolina, combustivelEtanol;
 
 
     @Override
@@ -83,7 +85,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnSave.setOnClickListener(view -> {
-            //
+            combustivelGasolina = new Combustivel();
+            combustivelEtanol = new Combustivel();
+
+            combustivelGasolina.setFuelTipe("Gasolina");
+            combustivelGasolina.setFuelPrice(precoGasolina);
+            combustivelEtanol.setFuelTipe("Etanol");
+            combustivelEtanol.setFuelPrice(precoEtanol);
+
+            combustivelGasolina.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
+            combustivelEtanol.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
+
         });
 
         btnClear.setOnClickListener(view -> {
