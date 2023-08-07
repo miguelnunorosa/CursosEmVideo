@@ -10,7 +10,7 @@ import io.github.miguelnunorosa.appgaseta.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final int TIMEOUT_SPLASH = 3000; //time in ms
+    private static final int TIMEOUT_SPLASH = 2500; //time in ms
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

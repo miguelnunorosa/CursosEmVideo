@@ -1,34 +1,33 @@
 package io.github.miguelnunorosa.appgaseta.view;
 
 import io.github.miguelnunorosa.appgaseta.R;
-import io.github.miguelnunorosa.appgaseta.controller.CursoController;
-import io.github.miguelnunorosa.appgaseta.controller.PessoaController;
-import io.github.miguelnunorosa.appgaseta.model.Pessoa;
+import io.github.miguelnunorosa.appgaseta.controller.CombustivelController;
+import io.github.miguelnunorosa.appgaseta.model.Combustivel;
+import io.github.miguelnunorosa.appgaseta.util.UtilGasEta;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
-import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtxt_name, edtxt_lastname, edtxt_courseName, edtxt_phone;
-    BootstrapButton btnSave, btnLimpar, btnFinalizar;
-    Spinner spListNames;
-    Pessoa pessoa, outraPessoa;
-    List<String> coursesNames;
-    PessoaController controller;
-    CursoController cursoController;
+    EditText edtxt_gasolina, edtxt_etanol;
+    TextView txtResult;
+    BootstrapButton btnSave, btnClear, btnCalculate, btnExit;
+
+    String resultBestChoice;
+    double precoGasolina, precoEtanol;
+    Combustivel combustivelGasolina, combustivelEtanol;
+    CombustivelController combustivelController;
 
 
     @Override
@@ -36,134 +35,91 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        controller = new PessoaController(MainActivity.this);
-        cursoController = new CursoController();
+        setupScreen();
+        clearEditTexts();
+        actionsForButtons();
 
-
-        setupScreen();           // create all items on screen
-        spinnerWidget();         // Inject data into Spinner item
-        actionsForButtons();     // Define actions for buttons
-
-        //initialData();         // Initial data (for testing only)
-        tempData();              // Insert temporary data into fields
-        clearEditTexts();        // Clear all screen items
-
-        sharedPreferencesData(); //load data from SharedPreferences
+        //example
+        //Toast.makeText(this, UtilGasEta.calculateBestOption(5.12, 2.99), Toast.LENGTH_LONG).show();
     }
-
 
 
     private void setupScreen() {
-        edtxt_name = findViewById(R.id.edtxt_firstname);
-        edtxt_lastname = findViewById(R.id.edtxt_lastname);
-        edtxt_courseName = findViewById(R.id.edtxt_courseName);
-        edtxt_phone = findViewById(R.id.edtxt_phone);
-        spListNames = findViewById(R.id.spListNames);
-
+        edtxt_gasolina = findViewById(R.id.edtxt_gasolina);
+        edtxt_etanol = findViewById(R.id.edtxt_etanol);
+        btnCalculate = findViewById(R.id.btnCalculate);
+        txtResult = findViewById(R.id.txtResult);
+        btnClear = findViewById(R.id.btnClear);
         btnSave = findViewById(R.id.btnSave);
-        btnLimpar = findViewById(R.id.btnLimpar);
-        btnFinalizar = findViewById(R.id.btnFinalizar);
-    }
+        btnExit = findViewById(R.id.btnExit);
 
-    private void tempData() {
-
-        pessoa = new Pessoa();
-        pessoa.setNome("Oscar");
-        pessoa.setApelido("Alho");
-        pessoa.setCurso("Android");
-        pessoa.setTelefone("123456789");
-        Log.i("AppListaVIP", "Nome: " + pessoa.getNome() + " | Apelido: " + pessoa.getApelido() + " | Curso: " + pessoa.getCurso() + " Contato: " + pessoa.getTelefone());
-        Log.i("AppListaVIP", "Using toString: " + pessoa.toString());
-
-
-        outraPessoa = new Pessoa();
-        outraPessoa.setNome("Oscar");
-        outraPessoa.setApelido("Alho");
-        outraPessoa.setCurso("Android");
-        outraPessoa.setTelefone("123456789");
-        Log.i("AppListaVIP", "Nome: " + outraPessoa.getNome() + " | Apelido: " + outraPessoa.getApelido() + " | Curso: " + outraPessoa.getCurso() + " Contato: " + outraPessoa.getTelefone());
-        Log.i("AppListaVIP", "Using toString: " + outraPessoa.toString());
-    }
-
-    private void initialData(){
-        //initial data demo
-        edtxt_name.setText(pessoa.getNome());
-        edtxt_lastname.setText(pessoa.getApelido());
-        edtxt_courseName.setText(pessoa.getCurso());
-        edtxt_phone.setText(pessoa.getTelefone());
-
-        //initial data are from static data. After first save, all data come from SharedPreferences
-    }
-
-    private void sharedPreferencesData() {
-        //data from PessoaController
-        controller.getData(pessoa);
-
-        //add data to fields
-        edtxt_name.setText(pessoa.getNome());
-        edtxt_lastname.setText(pessoa.getApelido());
-        edtxt_courseName.setText(pessoa.getCurso());
-        edtxt_phone.setText(pessoa.getTelefone());
+        btnSave.setEnabled(false);
     }
 
     private void clearEditTexts(){
-        edtxt_name.setText("");
-        edtxt_lastname.setText("");
-        edtxt_courseName.setText("");
-        edtxt_phone.setText("");
+        edtxt_gasolina.setText("");
+        edtxt_etanol.setText("");
     }
 
+    private void actionsForButtons(){
 
-    private void spinnerWidget(){
-        coursesNames = cursoController.dataForSpinner(); //access data (MainActivity <-> CursoController)
+        btnCalculate.setOnClickListener(view -> {
 
-        // we need: 1) Adapter + Layout + 2) Inject data into spinner (coursesNames)
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                                                          android.R.layout.simple_list_item_1,
-                                                          cursoController.dataForSpinner());
+            boolean isDadosOK = true;
 
-        //note:
-        //ArrayAdapter<String> adapter = new ArrayAdapter<>(context, layout, data);
+            if(TextUtils.isEmpty(edtxt_gasolina.getText())){
+                edtxt_gasolina.setError("Obrigatório");
+                edtxt_gasolina.requestFocus();
+                isDadosOK = false;
+            }
+            if(TextUtils.isEmpty(edtxt_etanol.getText())){
+                edtxt_etanol.setError("Obrigatório");
+                edtxt_etanol.requestFocus();
+                isDadosOK = false;
+            }
 
-        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);  //inject data
-        spListNames.setAdapter(adapter);
-    }
+            if(isDadosOK){
+                resultBestChoice = UtilGasEta.calculateBestOption(Double.parseDouble(edtxt_gasolina.getText().toString()), Double.parseDouble(edtxt_etanol.getText().toString()));
+                txtResult.setText(resultBestChoice);
+            }else{
+                Toast.makeText(MainActivity.this, "Insira os dados obrigatórios!", Toast.LENGTH_LONG).show();
+                Log.e("AppGasEta", "Dados inseridos incorretos.");
+                btnSave.setEnabled(false);
+            }
 
-    private void actionsForButtons() {
-
-        btnLimpar.setOnClickListener(view -> {
-            clearEditTexts();
-
-            //clear sharedPreferences
-            controller.clearData();
+            btnSave.setEnabled(true);
         });
 
-        btnFinalizar.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(view -> {
+            combustivelGasolina = new Combustivel();
+            combustivelEtanol = new Combustivel();
+            combustivelController = new CombustivelController(MainActivity.this);
+
+            combustivelGasolina.setFuelType("Gasolina");
+            combustivelGasolina.setFuelPrice(precoGasolina);
+            combustivelEtanol.setFuelType("Etanol");
+            combustivelEtanol.setFuelPrice(precoEtanol);
+
+            combustivelGasolina.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
+            combustivelEtanol.setSuggestion(UtilGasEta.calculateBestOption(precoGasolina, precoEtanol));
+
+            combustivelController.saveData(combustivelGasolina);
+            btnSave.setEnabled(false);
+        });
+
+        btnClear.setOnClickListener(view -> {
+            clearEditTexts();
+            combustivelController.clearData();
+            btnSave.setEnabled(false);
+        });
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Volte sempre!", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pessoa.setNome(edtxt_name.getText().toString());
-                pessoa.setApelido(edtxt_lastname.getText().toString());
-                pessoa.setCurso(edtxt_courseName.getText().toString());
-                pessoa.setTelefone(edtxt_phone.getText().toString());
-
-                controller.saveData(pessoa);
-
-                clearEditTexts();
-
-                Toast.makeText(MainActivity.this, "Guardado! " + pessoa.toString(), Toast.LENGTH_LONG).show();
-                Log.i("AppListaVIP", "Using toString: " + pessoa.toString());
-            }
-        });
-
     }
-
 
 }
