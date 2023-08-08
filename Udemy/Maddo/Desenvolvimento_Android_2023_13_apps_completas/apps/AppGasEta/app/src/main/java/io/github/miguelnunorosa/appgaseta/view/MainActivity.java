@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     String resultBestChoice;
     double precoGasolina, precoEtanol;
+    List<Combustivel> data;
     Combustivel combustivelGasolina, combustivelEtanol;
     CombustivelController combustivelController;
 
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        data = combustivelController.getAllData();
 
         setupScreen();
         clearEditTexts();

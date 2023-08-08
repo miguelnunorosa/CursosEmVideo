@@ -3,6 +3,8 @@ package io.github.miguelnunorosa.appgaseta.controller;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 
+import java.util.List;
+
 import io.github.miguelnunorosa.appgaseta.database.GasEtaDB;
 import io.github.miguelnunorosa.appgaseta.model.Combustivel;
 import io.github.miguelnunorosa.appgaseta.view.MainActivity;
@@ -40,12 +42,15 @@ public class CombustivelController extends GasEtaDB {
         int pra=0;
     }
 
+
+    public List<Combustivel> getAllData(){
+        return listData();
+    }
+
+
     public void clearData(){
         preferencesData.clear();
         preferencesData.apply();
     }
-
-
-
 
 }
