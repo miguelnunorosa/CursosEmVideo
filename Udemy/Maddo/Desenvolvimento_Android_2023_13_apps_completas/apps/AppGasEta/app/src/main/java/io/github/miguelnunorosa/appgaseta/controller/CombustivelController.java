@@ -32,9 +32,9 @@ public class CombustivelController extends GasEtaDB {
         preferencesData.apply();
 
         //save to database
-        data.put("fuelType", combustivel.getFuelType());
-        data.put("fuelPrice", combustivel.getFuelPrice());
-        data.put("suggestion", combustivel.getSuggestion());
+        data.put("fuelType", combustivel.getFuelType() );
+        data.put("fuelPrice", (float) combustivel.getFuelPrice() );
+        data.put("suggestion", combustivel.getSuggestion() );
 
         saveObj("Combustivel", data);
         int pra=0;
@@ -44,5 +44,8 @@ public class CombustivelController extends GasEtaDB {
         preferencesData.clear();
         preferencesData.apply();
     }
+
+
+
 
 }

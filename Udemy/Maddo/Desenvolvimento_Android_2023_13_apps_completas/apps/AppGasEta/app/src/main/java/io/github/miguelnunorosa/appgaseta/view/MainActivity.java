@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void actionsForButtons(){
 
+        CombustivelController controller;
+
         btnCalculate.setOnClickListener(view -> {
 
             boolean isDadosOK = true;
