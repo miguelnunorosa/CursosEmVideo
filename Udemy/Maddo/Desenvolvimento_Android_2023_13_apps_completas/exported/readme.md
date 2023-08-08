@@ -12,4 +12,4 @@ Todas as versões aqui disponibilizadadas foram realizadas durante o ano 2023.
 | Seção 7: 2023 2º App -> AppGasEta Aplicativo Android abastecer Gas ou Etanol               |  AppGasEta_v1.zip    |   completo   |    112kb   |
 | Seção 8: 2023 CRUD - Introdução ao SQLite o banco dados dos aplicativos Android            |
 | Seção 9: 2023 Customização de Layouts para quem não é designer                             |
-| Seçáo 10: Nível Básico - Aplicativo Android simples e completo em Java - App Media Escolar |
+| Seçáo 10: Nível Básico - App Android simples e completo em Java - App Media Escolar        |
