@@ -79,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if(isDadosOK){
-                resultBestChoice = UtilGasEta.calculateBestOption(Double.parseDouble(edtxt_gasolina.getText().toString()), Double.parseDouble(edtxt_etanol.getText().toString()));
+                resultBestChoice = UtilGasEta.calculateBestOption(Double.parseDouble(edtxt_gasolina.getText().toString()),
+                                                                  Double.parseDouble(edtxt_etanol.getText().toString()));
+
                 txtResult.setText(resultBestChoice);
             }else{
                 Toast.makeText(MainActivity.this, "Insira os dados obrigatórios!", Toast.LENGTH_LONG).show();
