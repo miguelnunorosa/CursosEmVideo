@@ -11,3 +11,6 @@ O meu repositório dos cursos online que tenho feito em qualquer plataforma.
 * [Desenvolvimento Android 2023 - Crie 13 apps completos](https://www.udemy.com/course/desenvolvimento-android-do-absoluto-zero-para-iniciantes)
 * [Formação Developer: Integração Base Dados SQL e NoSQL](https://www.udemy.com/course/formacao-developer-integracao-com-banco-de-dados)
   
+
+### CursoEmVideo (Guanabara)
+* [Java Básico](https://www.cursoemvideo.com/curso/java-basico)
