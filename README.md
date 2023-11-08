@@ -13,4 +13,4 @@ O meu repositório dos cursos online que tenho feito em qualquer plataforma.
   
 
 ### CursoEmVideo (Guanabara)
-* [CJava Básico](https://www.cursoemvideo.com/curso/java-basico)
+* [Java Básico](https://www.cursoemvideo.com/curso/java-basico)
