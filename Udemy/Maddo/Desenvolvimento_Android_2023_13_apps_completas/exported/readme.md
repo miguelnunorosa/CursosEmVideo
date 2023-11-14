@@ -20,4 +20,11 @@ Todas as versões aqui disponibilizadadas foram realizadas durante o ano 2023.
 | Seção 15: Nível Básico Layouts - Introdução ao CardView com Material Design                |
 | Seção 16: Nível Básico - Aprender criar gerador QRCode em Java e Kotlin                    |
 | Seção 17: API GPS - Georeferenciamento, Geolocalização, Rastreamento Latitude/Longitude    |
-| .  .  .  |
+| Seção 18: Kotlin - Nivelamento                                                             |
+| Seção 19: Como criar App Kotlin a partir de App existentes em Java?                        |
+| Seção 20: Banco de Dados - Aprenda NoSQL com MongoDB e Realm                               |
+| Seção 21: Nível Básico - Fundamentos de Design Patterns aplicado no contexto de App        |
+| Seção 22: Versão Ano 2020 - Crie Telas com Textos e Cores com/sem nenhuma programação      |
+| Seção 23: Versão Ano 2020 - Criar Formulários para receber dados digitados pelo utilizador |
+| Seção 24: Versão Ano 2020 - 1º App Modelo: Cadastro Clientes completo                      |
+| Seção 25: Versão Ano 2020 - Banco de Dados SQLite para projetos Android                    |
