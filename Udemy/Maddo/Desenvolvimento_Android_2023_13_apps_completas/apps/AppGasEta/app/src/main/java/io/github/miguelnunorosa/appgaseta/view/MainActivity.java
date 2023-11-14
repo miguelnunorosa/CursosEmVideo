@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,14 +28,18 @@ public class MainActivity extends AppCompatActivity {
 
     String resultBestChoice;
     double precoGasolina, precoEtanol;
+    List<Combustivel> data;
     Combustivel combustivelGasolina, combustivelEtanol;
-    CombustivelController combustivelController;
+
+    CombustivelController combustivelController = new CombustivelController(MainActivity.this);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        data = combustivelController.getAllData();
 
         setupScreen();
         clearEditTexts();
@@ -63,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void actionsForButtons(){
 
+        CombustivelController controller;
+
         btnCalculate.setOnClickListener(view -> {
 
             boolean isDadosOK = true;
@@ -79,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if(isDadosOK){
-                resultBestChoice = UtilGasEta.calculateBestOption(Double.parseDouble(edtxt_gasolina.getText().toString()), Double.parseDouble(edtxt_etanol.getText().toString()));
+                resultBestChoice = UtilGasEta.calculateBestOption(Double.parseDouble(edtxt_gasolina.getText().toString()),
+                                                                  Double.parseDouble(edtxt_etanol.getText().toString()));
+
                 txtResult.setText(resultBestChoice);
             }else{
                 Toast.makeText(MainActivity.this, "Insira os dados obrigatórios!", Toast.LENGTH_LONG).show();
@@ -93,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         btnSave.setOnClickListener(view -> {
             combustivelGasolina = new Combustivel();
             combustivelEtanol = new Combustivel();
-            combustivelController = new CombustivelController(MainActivity.this);
+            //combustivelController = new CombustivelController(MainActivity.this);
 
             combustivelGasolina.setFuelType("Gasolina");
             combustivelGasolina.setFuelPrice(precoGasolina);
