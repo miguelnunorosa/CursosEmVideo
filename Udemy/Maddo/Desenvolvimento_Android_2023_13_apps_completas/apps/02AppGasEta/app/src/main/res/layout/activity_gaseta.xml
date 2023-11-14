@@ -55,6 +55,8 @@
                     android:layout_marginEnd="48dp"
                     android:ems="10"
                     android:hint="@string/txt_hint_edit_gasolina"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:importantForAutofill="no"
                     android:inputType="numberDecimal" />
 
@@ -67,6 +69,8 @@
                     android:layout_marginEnd="16dp"
                     android:ems="10"
                     android:hint="@string/txt_hint_edit_etanol"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:inputType="numberDecimal" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -89,6 +93,7 @@
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
                 android:text="@string/txt_resultado"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
