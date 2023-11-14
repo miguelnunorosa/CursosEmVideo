@@ -7,6 +7,6 @@
 |   6  | Componente de Layout **Spinner** para gerar listas de selecção |  completo   |  exported\AppListaVIP_v3.zip  |
 |   7  | 2º AppGasEta                                                   |  completo   |  exported\AppGasEta_v1.zip    |
 |   8  | **CRUD** Introdução ao *SQLite*                                |  completo   |  exported\AppGasEta_v2.zip    |
-|   9  | Costumização de Layouts                                        |  ---   |       ---         |
+|   9  | Costumização de Layouts                                        |  completo   |  exported\AppGasEta_v3.zip    |
 |  10  | 3º AppMediaEscolar: App simples e completo                     |  ---   |       ---         |
 |  11  |  . . .
