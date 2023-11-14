@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     double precoGasolina, precoEtanol;
     List<Combustivel> data;
     Combustivel combustivelGasolina, combustivelEtanol;
-    CombustivelController combustivelController;
+
+    CombustivelController combustivelController = new CombustivelController(MainActivity.this);
 
 
     @Override
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         btnSave.setOnClickListener(view -> {
             combustivelGasolina = new Combustivel();
             combustivelEtanol = new Combustivel();
-            combustivelController = new CombustivelController(MainActivity.this);
+            //combustivelController = new CombustivelController(MainActivity.this);
 
             combustivelGasolina.setFuelType("Gasolina");
             combustivelGasolina.setFuelPrice(precoGasolina);

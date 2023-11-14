@@ -3,6 +3,7 @@ package io.github.miguelnunorosa.appgaseta.controller;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.github.miguelnunorosa.appgaseta.database.GasEtaDB;
@@ -44,7 +45,20 @@ public class CombustivelController extends GasEtaDB {
 
 
     public List<Combustivel> getAllData(){
+
         return listData();
+    }
+
+
+    public void update(Combustivel combustivel){
+        ContentValues data = new ContentValues();
+
+        data.put("id", combustivel.getId() );
+        data.put("fuelType", combustivel.getFuelType() );
+        data.put("fuelPrice", (float) combustivel.getFuelPrice() );
+        data.put("suggestion", combustivel.getSuggestion() );
+
+        updateData("Combustivel", data);
     }
 
 

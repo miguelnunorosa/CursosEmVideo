@@ -52,7 +52,9 @@ public class GasEtaDB extends SQLiteOpenHelper {
     public List<Combustivel> listData(){
 
         List<Combustivel> lista = new ArrayList<>();
+        String querySQL = "SELECT * FROM Combustivel";
         Combustivel dbRegister; //get row from database
+
 
         cursor = db.rawQuery(READ_QUERY, null);
 
@@ -73,6 +75,15 @@ public class GasEtaDB extends SQLiteOpenHelper {
 
 
         return lista;
+    }
+
+
+    public void updateData(String table, ContentValues data){
+
+        int id = data.getAsInteger("id"); //field from db table
+
+        db.update(table, data, "id=?", new String[]{Integer.toString(id)});
+
     }
 
 
