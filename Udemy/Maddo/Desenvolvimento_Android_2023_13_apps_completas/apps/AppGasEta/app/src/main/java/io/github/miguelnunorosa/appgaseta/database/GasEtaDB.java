@@ -73,7 +73,6 @@ public class GasEtaDB extends SQLiteOpenHelper {
             //
         }
 
-
         return lista;
     }
 
@@ -83,8 +82,12 @@ public class GasEtaDB extends SQLiteOpenHelper {
         int id = data.getAsInteger("id"); //field from db table
 
         db.update(table, data, "id=?", new String[]{Integer.toString(id)});
-
     }
 
+
+    public void deleteData(String table, int id){
+
+        db.delete(table, "id=?", new String[]{Integer.toString(id)});
+    }
 
 }
