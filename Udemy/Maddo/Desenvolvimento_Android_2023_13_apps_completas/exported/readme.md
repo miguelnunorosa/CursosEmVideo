@@ -47,6 +47,23 @@ Todas as versões aqui disponibilizadadas foram realizadas durante o ano 2023.
 | Seção 39: Crie telas com o ScrollView - O que é e como criar formulários com muitos campos |
 | Seção 40: Menus - Aprenda a implementar menus *Navigation Drawer*                          |
 | Seção 41: CRUD - Salvar, Listar, Update, Delete de um DB SQLite                            |
+| Seção 42: MVC - Aprenda a técnica de programação em camadas e ganhe produtividade          |
+| Seção 43: Fragments - Aprenda como implementar e utilizar o máximo deste recurso           |
+| Seção 44: Web Services - Completo com MySQL, JSON e PHP para os projetos Android           |
+| Seção 45: MVC - Consumindo recursos disponíveis e programando em camadas                   |
+| Seção 46: MVC - ListView com CRUD SQLite completo                                          |
+| Seção 47: Entenda o que são e como trabalhar com *Permissões Normais* e *Perigosas*        |
+| Seção 48: Web Services - Usando MySQL, SQLite, PHP, JSON e *AsyncTask* para troca de dados |
+| Seção 49: Web Services - Testando a classe SincronizarSistema passo a passo com Debug      |
+| Seção 50: Web Services - Incluindo dados no DB remoto MySQL                                |
+| Seção 51: Web Services - Alterando dados no DB remoto MySQL                                |
+| Seção 52: Web Services - Apagar dados no DB remoto MySQL                                   |
+| Seção 53: Spinner dinâmico para filtrar cidades por município e região                     |
+| Seção 54: Web Services - Aprenda como conectar com um servidor real na internet            |
+| Seção 55: Web Services - Notificações semelhantes às do WhatsApp, Bancos e outras Apps     |
+| Seção 56: Gráficos Linhas - Aprenda a implementar utilizando *AndroidPlot* aos seus apps   |
+| Seção 57: Nível Intermediário - Integração com mini-impressora Bluetooth térmica ESC/POS   |
+|
 
 
 
