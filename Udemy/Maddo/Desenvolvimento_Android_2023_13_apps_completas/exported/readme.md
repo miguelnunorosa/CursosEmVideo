@@ -63,8 +63,14 @@ Todas as versões aqui disponibilizadadas foram realizadas durante o ano 2023.
 | Seção 55: Web Services - Notificações semelhantes às do WhatsApp, Bancos e outras Apps     |
 | Seção 56: Gráficos Linhas - Aprenda a implementar utilizando *AndroidPlot* aos seus apps   |
 | Seção 57: Nível Intermediário - Integração com mini-impressora Bluetooth térmica ESC/POS   |
-|
-
-
+| Seção 58: Nível Intermediário - Construa o seu Backend com Laravel utilizando API REST     |
+| Seção 59: Nível Intermediário - Criar projeto para Backend Web com Laravel                 |
+| Seção 60: FCM - Implemente *PUSH Notification* em tempo real com Firebase Cloud Messaging  |
+| Seção 61: Aprenda criar layouts com *Material Design* na prática para Apps Android         |
+| Seção 62: Aprenda publicar seu projeto Android na Play Store / Google Play Console         |
+| Seção 63: TDD - Aprenda reaproveitar as classes (Programe uma vez e use onde quiser)       |
+| Seção 64: Tarefas para validar seu aprendizado no curso                                    |         ---          |      ---     |     ---    |  ---   |
+| Seção 65: Kotlin para desenvolvedores com conhecimentos em Java para Android               |
+| Seção 66: Encerramento do curso *DAZZI*                                                    |         ---          |      ---     |     ---    |  ---   |
 
 
