@@ -28,3 +28,22 @@ Todas as versões aqui disponibilizadadas foram realizadas durante o ano 2023.
 | Seção 23: Versão Ano 2020 - Criar Formulários para receber dados digitados pelo utilizador |
 | Seção 24: Versão Ano 2020 - 1º App Modelo: Cadastro Clientes completo                      |
 | Seção 25: Versão Ano 2020 - Banco de Dados SQLite para projetos Android                    |
+| Seção 26: Versão Ano 2020 - Aprenda a criar telas fantásticas para os seus Apps            |
+| Seção 27: Versão Ano 2020 - Salvar os dados dos formulários em DB SQLite                   |
+| Seção 28: Versão Ano 2020 - Menu Principal do App *Cliente VIP*                            |
+| Seção 29: Versão Ano 2020 - Aprenda a usar os recursos nativos das APIs Android            |
+| Seção 30: Versão Ano 2020 - Técnicas que todo o developer Android deve saber sobre APIs    |
+| Seção 31: Versão Ano 2020 - Integração de App Android com Sistemas Web Externos            |
+| Seção 32: Versão Ano 2020 - Repositório github com o acervo 2016-19                        |
+| Seção 33: Android Studio - Aprenda Instalar e Criar seu primeiro App Android Parte I       |
+| Seção 34: Android Studio - Aprenda Instalar e Criar seu primeiro App Android Parte II      |
+| Seção 35: Conceitos Essenciais da Programação Orientada a Objectos (POO) em Java           |
+| Seção 36: Crie telas com LinearLayout - O que é e como criar formulários simples lineares? |
+| Seção 37: Crie telas com LinearLayout - O que é e como criar formulários complexos         |
+| Seção 38: Aplicando os conhecimentos e habilidades aprendidas até ao momento no curso      |
+| Seção 39: Crie telas com o ScrollView - O que é e como criar formulários com muitos campos |
+| Seção 40: Menus - Aprenda a implementar menus *Navigation Drawer*                          |
+
+
+
+
