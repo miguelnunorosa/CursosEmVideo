@@ -6,6 +6,9 @@ Todas as versões aqui disponibilizadadas foram realizadas durante o ano 2023.
 
 |                                          Secção                                            |         App          |    status    |    size    |  Ano   |
 |--------------------------------------------------------------------------------------------|----------------------|--------------|------------|--------|
+| Seção 1: 2023 - Orientações sobre o novíssimo conteúdo do curso Desenvolvimento Android    |         ---          |      ---     |     ---    |  ---   |
+| Seção 2: 2023 - Ativar o modo desenvolvedor do seu equipamento para o curso                |         ---          |      ---     |     ---    |  ---   |
+| Seção 3: 2023 - Preparação do seu computador para as aulas do curso (github)               |         ---          |      ---     |     ---    |  ---   |
 | Seção 4: 2023 1º AppListaVIP (Aplicativo Android Completo para iniciantes)                 |  AppListaVip_V1.zip  |   completo   |    112kb   |  2023  |
 | Seção 5: 2023 Implementando  métodos na camada ***controller*** (estrutura MVC)            |  AppListaVip_V2.zip  |   completo   |    113kb   |  2023  |
 | Seção 6: 2023 Componente de layout ***Spinner*** para gerar listas de seleção              |  AppListaVip_V3.zip  |   completo   |    117kb   |  2023  |
@@ -43,6 +46,7 @@ Todas as versões aqui disponibilizadadas foram realizadas durante o ano 2023.
 | Seção 38: Aplicando os conhecimentos e habilidades aprendidas até ao momento no curso      |
 | Seção 39: Crie telas com o ScrollView - O que é e como criar formulários com muitos campos |
 | Seção 40: Menus - Aprenda a implementar menus *Navigation Drawer*                          |
+| Seção 41: CRUD - Salvar, Listar, Update, Delete de um DB SQLite                            |
 
 
 
