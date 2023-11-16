@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppPrimeiroCliente</string>
+    <string name="cliente_empreendedor">Cliente Empreendedor</string>
+    <string name="destaque">Estamos com 30% de desconto para este produtos apenas para pedidos via nosso aplicativo. Ligue e fale diretamente com nossa equipe para descobrir a lista de produtos em promoção. Telefone exclusivo para esta oferta, ligue <b>(99) 99999-9999.</b></string>
+</resources>

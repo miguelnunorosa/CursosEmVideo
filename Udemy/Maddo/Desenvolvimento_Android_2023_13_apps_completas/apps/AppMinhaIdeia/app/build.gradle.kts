@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "pt.miguelrosa.appminhaideia"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "pt.miguelrosa.appminhaideia"
